@@ -13,12 +13,25 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 100)->nullable();
+            $table->string('profile_id')->unique()->nullable();
+            $table->unsignedBigInteger('gender')->nullable();
+            $table->date('dob')->nullable();
+            $table->unsignedBigInteger('marital_status')->nullable();
+            $table->string('email', 100)->nullable();
+            $table->string('mobile', 10)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 50);
+            $table->unsignedBigInteger('religion')->nullable();
+            $table->unsignedBigInteger('caste')->nullable();
+            $table->unsignedBigInteger('subcaste')->nullable();
+            $table->unsignedBigInteger('role')->nullable();
+            $table->unsignedBigInteger('partner_id')->comment('If role is Freelancer, Partner ID should be there which freelancer appointed by')->nullable();
+            $table->unsignedBigInteger('plan')->nullable();
+            $table->string('referral_code', 25)->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
