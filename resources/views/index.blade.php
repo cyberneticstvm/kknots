@@ -10,7 +10,7 @@
                         <div class="ban-tit">
                             <span><i class="no1">#1</i> Matrimony</span>
                             <h1>Find your<br><b>Right Match</b> here</h1>
-                            <p>Most trusted Matrimony Brand in the World.</p>
+                            <p>Most trusted Matrimony Brand in Kerala.</p>
                         </div>
                         <div class="ban-search chosenini">
                             <form>
@@ -88,12 +88,12 @@
             <ul class="ban-sli">
                 <li>
                     <div class="image">
-                        <img src="{{ asset('/assets/images/ban-bg.jpg') }}" alt="" loading="lazy">
+                        <img src="{{ asset('/assets/images/slider/young-indian-woman-wearing-sari.webp') }}" alt="Kerala Knots" loading="lazy">
                     </div>
                 </li>
                 <li>
                     <div class="image">
-                        <img src="{{ asset('/assets/images/banner.jpg') }}" alt="" loading="lazy">
+                        <img src="{{ asset('/assets/images/slider/closeup-hands-pretty-hindu-bride-with-henna-tattoo.webp') }}" alt="Kerala Knots" loading="lazy">
                     </div>
                 </li>
             </ul>

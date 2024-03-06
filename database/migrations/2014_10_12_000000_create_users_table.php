@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 100)->nullable();
             $table->string('mobile', 10)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 50);
+            $table->string('password');
             $table->unsignedBigInteger('religion')->nullable();
             $table->unsignedBigInteger('caste')->nullable();
             $table->unsignedBigInteger('subcaste')->nullable();
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('partner_id')->comment('If role is Freelancer, Partner ID should be there which freelancer appointed by')->nullable();
             $table->unsignedBigInteger('plan')->nullable();
             $table->string('referral_code', 25)->nullable();
+            $table->unsignedBigInteger('how_to_know')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

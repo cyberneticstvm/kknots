@@ -1,0 +1,26 @@
+.req::after {
+    content: ' *';
+    color: red;
+}
+
+.bl {
+    margin-top: 2% !important;
+}
+
+.logo>span {
+    margin-top: 7% !important;
+}
+
+.head-pro {
+    margin-top: 10% !important;
+}
+
+.smenu-box,
+.smenu-multi {
+    top: 115px !important;
+}
+
+.hom-top.act .smenu-box,
+.hom-top.act .smenu-multi {
+    top: 75px !important;
+}
