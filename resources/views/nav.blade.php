@@ -56,6 +56,7 @@
                                 </div>
                             </div>
                         </li>
+                        <li><a href="{{ route('index') }}">Contact Us</a></li>
                         @auth
                         @if(Auth::user()->role == 21)
                         <li class="smenu-pare">
@@ -85,7 +86,6 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
                         <li><a href="{{ route('login') }}">Login</a></li>
                         @endauth
-                        <li><a href="{{ route('index') }}">Contact Us</a></li>
                     </ul>
                 </div>
 
