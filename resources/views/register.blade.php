@@ -5,7 +5,6 @@
     <div class="login">
         <div class="container">
             <div class="row">
-
                 <div class="inn">
                     <div class="lhs">
                         <div class="tit">

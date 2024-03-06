@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,19 @@ Route::middleware(['web'])->group(function () {
 Route::middleware(['web', 'auth'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/logout', 'logout')->name('logout');
+    });
+});
+
+Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('dashboard', 'dashboard')->name('admin.dashboard');
+    });
+    Route::controller(UserController::class)->group(function () {
+        Route::get('staffs', 'index')->name('admin.manage.staff');
+        Route::get('staff/create', 'create')->name('admin.staff.create');
+        Route::post('staff/create', 'store')->name('admin.staff.save');
+        Route::get('staff/edit/{id}', 'edit')->name('admin.staff.edit');
+        Route::put('staff/edit/{id}', 'update')->name('admin.staff.update');
+        Route::get('staff/delete/{id}', 'destroy')->name('admin.staff.delete');
     });
 });

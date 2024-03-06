@@ -14,6 +14,7 @@
     <!--== FAV ICON(BROWSER TAB ICON) ==-->
     <link rel="shortcut icon" href="{{ asset('/assets/images/fav.ico') }}" type="image/x-icon">
     <!--== CSS FILES ==-->
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/animate.min.css') }}">
@@ -110,11 +111,17 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+    <script src="//cdn.datatables.net/2.0.1/js/dataTables.min.js"></script>
     <script src="{{ asset('/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/assets/js/select-opt.js') }}"></script>
     <script src="{{ asset('/assets/js/slick.js') }}"></script>
     <script src="{{ asset('/assets/js/custom.js') }}"></script>
+    <script>
+        $(function() {
+            let table = new DataTable('#myTable');
+        })
+    </script>
 
     @include("message")
 </body>

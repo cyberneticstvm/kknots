@@ -57,6 +57,7 @@
                             </div>
                         </li>
                         @auth
+                        @if(Auth::user()->role == 21)
                         <li class="smenu-pare">
                             <span class="smenu">Dashboard</span>
                             <div class="smenu-open smenu-single">
@@ -69,6 +70,17 @@
                                 </ul>
                             </div>
                         </li>
+                        @else
+                        <li class="smenu-pare">
+                            <span class="smenu">Dashboard</span>
+                            <div class="smenu-open smenu-single">
+                                <ul>
+                                    <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                    <li><a href="{{ route('admin.manage.staff') }}">Manage Staff / Users</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @endif
                         @else
                         <li><a href="{{ route('register') }}">Register</a></li>
                         <li><a href="{{ route('login') }}">Login</a></li>

@@ -67,4 +67,9 @@ class AuthController extends Controller
         }
         return redirect()->back()->with("success", "User registered successfully.");
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }
