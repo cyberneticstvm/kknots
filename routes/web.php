@@ -3,6 +3,7 @@
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\user\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,10 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/logout', 'logout')->name('logout');
     });
+
+    Route::prefix('user/')->controller(ProfileController::class)->group(function () {
+        Route::get('dashboard', 'dashboard')->name('user.dashboard')->middleware('user');
+    });
 });
 
 Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
@@ -40,11 +45,11 @@ Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
         Route::get('dashboard', 'dashboard')->name('admin.dashboard');
     });
     Route::controller(UserController::class)->group(function () {
-        Route::get('staffs', 'index')->name('admin.manage.staff');
-        Route::get('staff/create', 'create')->name('admin.staff.create');
-        Route::post('staff/create', 'store')->name('admin.staff.save');
-        Route::get('staff/edit/{id}', 'edit')->name('admin.staff.edit');
-        Route::put('staff/edit/{id}', 'update')->name('admin.staff.update');
-        Route::get('staff/delete/{id}', 'destroy')->name('admin.staff.delete');
+        Route::get('staffs', 'index')->name('admin.manage.staff')->middleware('admin');
+        Route::get('staff/create', 'create')->name('admin.staff.create')->middleware('admin');
+        Route::post('staff/create', 'store')->name('admin.staff.save')->middleware('admin');
+        Route::get('staff/edit/{id}', 'edit')->name('admin.staff.edit')->middleware('admin');
+        Route::put('staff/edit/{id}', 'update')->name('admin.staff.update')->middleware('admin');
+        Route::get('staff/delete/{id}', 'destroy')->name('admin.staff.delete')->middleware('admin');
     });
 });

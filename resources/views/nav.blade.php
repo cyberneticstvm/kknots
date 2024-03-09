@@ -63,11 +63,12 @@
                             <span class="smenu">Dashboard</span>
                             <div class="smenu-open smenu-single">
                                 <ul>
-                                    <li><a href="user-dashboard.html">Dashboard</a></li>
-                                    <li><a href="user-profile.html">My profile</a></li>
-                                    <li><a href="user-interests.html">Interests</a></li>
-                                    <li><a href="user-setting.html">Profile settings</a></li>
-                                    <li><a href="user-profile-edit.html">Edit full profile</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">Interests</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">Profile settings</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">Edit full profile</a></li>
+                                    <li><a href="{{ route('logout') }}">Logout</a></li>
                                 </ul>
                             </div>
                         </li>

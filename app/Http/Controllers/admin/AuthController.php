@@ -54,7 +54,7 @@ class AuthController extends Controller
         ]);
         try {
             $input = $request->except(array('password_confirmation', 'terms'));
-            $input['plan'] = 16;
+            $input['plan'] = 1;
             $input['role'] = 21;
             DB::transaction(function () use ($input) {
                 $user = User::create($input);

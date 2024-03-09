@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return ($this->deleted_at) ? "<span class='badge bg-danger'>Deleted</span>" : "<span class='badge bg-success'>Active</span>";
     }
+
+    public function plans()
+    {
+        return $this->belongsTo(Plan::class, 'plan', 'id');
+    }
 }

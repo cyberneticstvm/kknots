@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('role')->nullable();
             $table->unsignedBigInteger('partner_id')->comment('If role is Freelancer, Partner ID should be there which freelancer appointed by')->nullable();
             $table->unsignedBigInteger('plan')->nullable();
+            $table->date('plan_expired_on')->nullable();
             $table->string('referral_code', 25)->nullable();
             $table->unsignedBigInteger('how_to_know')->nullable();
             $table->rememberToken();
