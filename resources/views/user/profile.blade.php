@@ -229,7 +229,7 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Marital Status:</label>
-                                        {{ html()->select('marital_status_preference', $extras->where('category', 'marital_status_preference')->pluck('name', 'id'), $profile?->marital_status_preference)->class('chosen-select')->placeholder('Select') }}
+                                        {{ html()->select('marital_status_preference', $extras->where('category', 'marital_status')->pluck('name', 'id'), $profile?->marital_status_preference)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Caste:</label>
