@@ -160,17 +160,23 @@
                                     <h4>Job details</h4>
                                     <h1>Job & Education</h1>
                                 </div>
-                                <div class="form-group">
-                                    <label class="lb">Job type:</label>
-                                    {{ html()->select('occupation', $occupations, $profile?->occupation)->class('form-select chosen-select')->placeholder('Select') }}
-                                </div>
-                                <div class="form-group">
-                                    <label class="lb">Company name:</label>
-                                    {{ html()->text('company_name', $profile?->company_name)->class('form-control')->placeholder('Company Name') }}
-                                </div>
-                                <div class="form-group">
-                                    <label class="lb">Working Place:</label>
-                                    {{ html()->select('work_place', $districts, $profile?->work_place)->class('form-select chosen-select')->placeholder('Select') }}
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="lb">Job type:</label>
+                                        {{ html()->select('occupation', $occupations, $profile?->occupation)->class('form-select chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="lb">Company name:</label>
+                                        {{ html()->text('company_name', $profile?->company_name)->class('form-control')->placeholder('Company Name') }}
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="lb">Working Place:</label>
+                                        {{ html()->select('work_place', $districts, $profile?->work_place)->class('form-select chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="lb">Education:</label>
+                                        {{ html()->select('qualification', $qualifications, $profile?->qualification)->class('form-select chosen-select')->placeholder('Select') }}
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
@@ -181,10 +187,6 @@
                                         <label class="lb">Job total experience:</label>
                                         {{ html()->number('total_experience', $profile?->total_experience, '0', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="lb">Education:</label>
-                                    {{ html()->select('qualification', $qualifications, $profile?->qualification)->class('form-select chosen-select')->placeholder('Select') }}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
