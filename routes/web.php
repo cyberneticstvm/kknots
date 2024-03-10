@@ -37,6 +37,8 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     Route::prefix('user/')->controller(ProfileController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('user.dashboard')->middleware('user');
+        Route::get('profile/edit', 'editProfile')->name('user.profile.edit')->middleware('user');
+        Route::post('profile/edit', 'updateProfile')->name('user.profile.update')->middleware('user');
     });
 });
 
