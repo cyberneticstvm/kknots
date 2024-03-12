@@ -117,6 +117,7 @@
     <script src="{{ asset('/assets/js/select-opt.js') }}"></script>
     <script src="{{ asset('/assets/js/slick.js') }}"></script>
     <script src="{{ asset('/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('/assets/js/script.js') }}"></script>
     <script>
         $(function() {
             let table = new DataTable('#myTable');

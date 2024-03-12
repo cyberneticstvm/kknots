@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProfileSetting extends Model
+class ProfileSettingDetail extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function details()
-    {
-        return $this->hasMany(ProfileSettingDetail::class, 'profile_setting_id', 'id');
-    }
+    public $timestamps = false;
 }

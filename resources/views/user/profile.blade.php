@@ -8,7 +8,7 @@
                 <div class="inn">
                     <div class="rhs">
                         <div class="form-login">
-                            {{ html()->form('POST', route('user.profile.update'))->class('')->open() }}
+                            {{ html()->form('POST', route('user.profile.update'))->class('')->acceptsFiles()->open() }}
                             <!--PROFILE BIO-->
                             <div class="edit-pro-parti">
                                 <div class="form-tit">
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb">Referral Code:</label>
-                                        {{ html()->text('referral_code', Auth::user()->referral_code)->class('form-control')->placeholder('Referral Code')->if( Auth::user()->referral_code != '', function($el){
+                                        {{ html()->text('referral_code', Auth::user()->referral_code)->class('form-control')->placeholder('Referral Code')->if(Auth::user()->referral_code != '', function($el){
                                             $el->attribute('disabled', 'true');
                                             }) 
                                         }}
@@ -117,21 +117,21 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Number of Brothers:</label>
-                                        {{ html()->number('number_of_brothers', $profile?->number_of_brothers, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('number_of_brothers', $profile?->number_of_brothers, '', '10', '1')->class('form-control')->placeholder('0') }}
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Number of Sisters:</label>
-                                        {{ html()->number('number_of_sisters', $profile?->number_of_sisters, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('number_of_sisters', $profile?->number_of_sisters, '', '10', '1')->class('form-control')->placeholder('0') }}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Number of Married Brothers:</label>
-                                        {{ html()->number('number_of_married_brothers', $profile?->number_of_married_brothers, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('number_of_married_brothers', $profile?->number_of_married_brothers, '', '10', '1')->class('form-control')->placeholder('0') }}
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Number of Married Sisters:</label>
-                                        {{ html()->number('number_of_married_sisters', $profile?->number_of_married_sisters, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('number_of_married_sisters', $profile?->number_of_married_sisters, '', '10', '1')->class('form-control')->placeholder('0') }}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -184,8 +184,8 @@
                                         {{ html()->select('salary', $incomes, $profile?->salary)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label class="lb">Job total experience:</label>
-                                        {{ html()->number('total_experience', $profile?->total_experience, '0', '', 'any')->class('form-control')->placeholder('0') }}
+                                        <label class="lb">Job total experience (Years):</label>
+                                        {{ html()->number('total_experience', $profile?->total_experience, '', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -209,13 +209,13 @@
                                 <div class="chosenini">
                                     <div class="form-group">
                                         <label class="lb">Interests:</label>
-                                        {{ html()->select('interests[]', $extras->where('category', 'interest')->pluck('name', 'id'), '')->class('chosen-select')->placeholder('Select')->multiple() }}
+                                        {{ html()->select('interests[]', $extras->where('category', 'interest')->pluck('name', 'id'), $profile?->details->where('category', 'interest')->pluck('name'))->class('chosen-select')->placeholder('Select')->multiple() }}
                                     </div>
                                 </div>
                                 <div class="chosenini">
                                     <div class="form-group">
                                         <label class="lb">Habits:</label>
-                                        {{ html()->select('habits[]', $extras->where('category', 'habit')->pluck('name', 'id'), '')->class('chosen-select')->placeholder('Select')->multiple() }}
+                                        {{ html()->select('habits[]', $extras->where('category', 'habit')->pluck('name', 'id'), $profile?->details->where('category', 'habit')->pluck('name'))->class('chosen-select')->placeholder('Select')->multiple() }}
                                     </div>
                                 </div>
                             </div>
@@ -238,20 +238,20 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 form-group">
-                                        <label class="lb">Height From:</label>
-                                        {{ html()->number('number_of_brothers', $profile?->number_of_brothers, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        <label class="lb">Height From (CM):</label>
+                                        {{ html()->number('height_from', $profile?->height_from, '', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
                                     <div class="col-md-3 form-group">
-                                        <label class="lb">Height To:</label>
-                                        {{ html()->number('number_of_sisters', $profile?->number_of_sisters, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        <label class="lb">Height To (CM):</label>
+                                        {{ html()->number('height_to', $profile?->height_to, '', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
                                     <div class="col-md-3 form-group">
                                         <label class="lb">Age From:</label>
-                                        {{ html()->number('number_of_brothers', $profile?->number_of_brothers, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('age_from', $profile?->age_from, '', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
                                     <div class="col-md-3 form-group">
                                         <label class="lb">Age To:</label>
-                                        {{ html()->number('number_of_sisters', $profile?->number_of_sisters, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                        {{ html()->number('age_to', $profile?->age_to, '', '', 'any')->class('form-control')->placeholder('0') }}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -283,19 +283,48 @@
                                     <h1>Profile Photo & Horoscope</h1>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label class="lb">Profile Photo (Main):</label>
-                                        {{ html()->file('profile_photo')->class('form-control') }}
+                                    <div class="col-md-12 form-group">
+                                        <label class="lb">Profile Photo Main (360px width and 240px height):</label>
+                                        {{ html()->file('profile_photo')->class('form-control main_img') }}
+                                        <div id="main_img" class="text-center">
+                                            <img src="{{ ($profile?->profile_photo) ? asset($profile?->profile_photo) : '' }}" width="10%" />
+                                            @if($profile?->profile_photo)
+                                            <p class="mt-1"><a href="{{ route('user.profile.photo.remove') }}" class="dlt">Remove Profile Photo</a></p>
+                                            @endif
+                                        </div>
+                                        @error('profile_photo')
+                                        <small class="text-danger">{{ $errors->first('profile_photo') }}</small>
+                                        @enderror
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-12 form-group pro-pg-intro">
+                                        <label class="lb">Additional Photos <small>(Multiple selection enabled)</small></label>
+                                        {{ html()->file('photos[]')->class('form-control multi_img')->multiple() }}
+                                        <div id="multi_img" class="text-center pro-info-status mt-3">
+                                            <ul>
+                                                @forelse($profile->details->where('category', 'photo') as $key => $item)
+                                                <li>
+                                                    <div>
+                                                        <img src="{{ ($item?->name) ? asset($item?->name) : '' }}" width="10%" loading="lazy" alt="">
+                                                        <p class="mt-1"><a href="{{ route('user.other.photo.remove', encrypt($item->id)) }}" class="dlt">Remove</a></p>
+                                                    </div>
+                                                </li>
+                                                @empty
+                                                @endforelse
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 form-group">
                                         <label class="lb">Horoscope:</label>
                                         {{ html()->file('horoscope')->class('form-control') }}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <label class="lb">Additional Photos <small>(Multiple selection enabled)</small></label>
-                                        {{ html()->file('photos[]')->class('form-control')->multiple() }}
+                                        <div class="text-center">
+                                            @if($profile?->horoscope)
+                                            <p class="mt-3"><a href="{{ asset($profile?->horoscope) }}"><i class="fa fa-file-o"></i></a></p>
+                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove') }}" class="dlt">Remove</a></p>
+                                            @endif
+                                        </div>
+                                        @error('horoscope')
+                                        <small class="text-danger">{{ $errors->first('horoscope') }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
