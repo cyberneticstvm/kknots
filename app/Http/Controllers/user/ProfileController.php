@@ -11,6 +11,7 @@ use App\Models\Occupation;
 use App\Models\ProfileSetting;
 use App\Models\ProfileSettingDetail;
 use App\Models\Qualification;
+use App\Models\State;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -28,12 +29,13 @@ class ProfileController extends Controller
     {
         $extras = Extra::all();
         $districts = District::pluck('name', 'id');
+        $states = State::all();
         $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
         $occupations = Occupation::pluck('name', 'id');
         $incomes = Income::pluck('name', 'id');
         $qualifications = Qualification::pluck('name', 'id');
         $casts = Caste::whereNotIn('name', ['Other'])->pluck('name', 'id');
-        return view('user.profile', compact('extras', 'districts', 'profile', 'occupations', 'incomes', 'qualifications', 'casts'));
+        return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts'));
     }
 
     public function updateProfile(Request $request)

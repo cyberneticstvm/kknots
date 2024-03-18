@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->longText('bio')->nullable();
             $table->unsignedBigInteger('city')->nullable();
-            $table->string('state', 50)->nullable();
+            $table->unsignedBigInteger('state')->nullable();
             $table->decimal('height', 5, 2)->nullable();
             $table->decimal('weight', 5, 2)->nullable();
             $table->text('address')->nullable();

@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">State:</label>
-                                        {{ html()->text('state', $profile?->state)->class('form-control')->placeholder('State') }}
+                                        {{ html()->select('state', $states->pluck('name', 'id'), $profile?->state ?? $states->where('default', 'true')->first()->id)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
                                 <div class="row">
