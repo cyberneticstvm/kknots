@@ -13,62 +13,59 @@
                             <p>Most trusted Matrimony Brand in Kerala.</p>
                         </div>
                         <div class="ban-search chosenini">
-                            <form>
+                            <form method="post" action="{{ route('search.profile') }}">
+                                @csrf
                                 <ul>
                                     <li class="sr-look">
                                         <div class="form-group">
                                             <label>I'm looking for</label>
-                                            <select class="chosen-select">
+                                            <select class="chosen-select" name="gender">
                                                 <option value="">I'm looking for</option>
-                                                <option value="Men">Men</option>
-                                                <option value="Women">Women</option>
+                                                @forelse($extras->where('category', 'gender') as $key => $gender)
+                                                <option value="{{ $gender->id }}">{{ $gender->name }}</option>
+                                                @empty
+                                                @endforelse
                                             </select>
                                         </div>
                                     </li>
                                     <li class="sr-age">
                                         <div class="form-group">
                                             <label>Age</label>
-                                            <select class="chosen-select">
+                                            <select class="chosen-select" name="age">
                                                 <option value="">Age</option>
-                                                <option value="">18 to 30</option>
-                                                <option value="">31 to 40</option>
-                                                <option value="">41 to 50</option>
-                                                <option value="">51 to 60</option>
-                                                <option value="">61 to 70</option>
-                                                <option value="">71 to 80</option>
-                                                <option value="">81 to 90</option>
-                                                <option value="">91 to 100</option>
+                                                @forelse($extras->where('category', 'agegroup') as $key => $age)
+                                                <option value="{{ $age->id }}">{{ $age->name }}</option>
+                                                @empty
+                                                @endforelse
                                             </select>
                                         </div>
                                     </li>
                                     <li class="sr-reli">
                                         <div class="form-group">
                                             <label>Religion</label>
-                                            <select class="chosen-select">
+                                            <select class="chosen-select" name="religion">
                                                 <option>Religion</option>
-                                                <option>Any</option>
-                                                <option>Hindu</option>
-                                                <option>Muslim</option>
-                                                <option>Jain</option>
-                                                <option>Christian</option>
+                                                @forelse($religions as $key => $rel)
+                                                <option value="{{ $rel->id }}">{{ $rel->name }}</option>
+                                                @empty
+                                                @endforelse
                                             </select>
                                         </div>
                                     </li>
                                     <li class="sr-cit">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <select class="chosen-select">
+                                            <select class="chosen-select" name="location">
                                                 <option>Location</option>
-                                                <option>Any location</option>
-                                                <option>Chennai</option>
-                                                <option>New york</option>
-                                                <option>Perth</option>
-                                                <option>London</option>
+                                                @forelse($states as $key => $state)
+                                                <option value="{{ $state->id }}" {{ ($states->where('default', 'true')->first()->id == $state->id) ? 'selected' : '' }}>{{ $state->name }}</option>
+                                                @empty
+                                                @endforelse
                                             </select>
                                         </div>
                                     </li>
                                     <li class="sr-btn">
-                                        <input type="submit" value="Search">
+                                        <input type="submit" class="btn-submit" value="Search">
                                     </li>
                                 </ul>
                             </form>

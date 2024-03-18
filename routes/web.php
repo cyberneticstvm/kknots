@@ -22,6 +22,7 @@ Route::middleware(['web'])->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/login', 'login')->name('login');
         Route::get('/register', 'register')->name('register');
+        Route::post('/search/profile', 'searchProfile')->name('search.profile');
     });
 
     Route::controller(AuthController::class)->group(function () {
