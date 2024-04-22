@@ -148,10 +148,10 @@
                                     <div class="pro-detail">
                                         <h4><a href="profile-details.html">{{ $profile->name }}</a></h4>
                                         <div class="pro-bio">
-                                            <span>{{ $profile->settings->qualifications->name }}</span>
-                                            <span>{{ $profile->settings->occupations->name }}</span>
-                                            <span>{{ $profile->age() }} Years old</span>
-                                            <span>Height: {{ $profile->settings->height}} Cms</span>
+                                            <span>{{ $profile?->settings?->qualifications?->name }}</span>
+                                            <span>{{ $profile?->settings?->occupations?->name }}</span>
+                                            <span>{{ $profile?->age() }} Years old</span>
+                                            <span>Height: {{ $profile?->settings?->height}} Cms</span>
                                         </div>
                                         <div class="links">
                                             <a href="{{ route('index') }}">More detaiils</a>
