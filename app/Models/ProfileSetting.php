@@ -25,4 +25,9 @@ class ProfileSetting extends Model
     {
         return $this->belongsTo(Occupation::class, 'occupation', 'id');
     }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'city', 'id');
+    }
 }

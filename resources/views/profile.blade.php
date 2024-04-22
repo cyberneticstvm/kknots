@@ -8,7 +8,7 @@
                 <div class="profile">
                     <div class="pg-pro-big-im">
                         <div class="s1">
-                            <img src="{{ asset('/assets/images/profiles/profile-large.jpg') }}" loading="lazy" class="pro" alt="">
+                            <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
                         </div>
                     </div>
                 </div>
@@ -24,25 +24,25 @@
                                 <li>
                                     <div>
                                         <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>City: <strong>New York</strong></span>
+                                        <span>City: <strong>{{ $profile->settings->district->name }}</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
                                         <img src="{{ asset('/assets/images/icon/pro-age.png') }}" loading="lazy" alt="">
-                                        <span>Age: <strong>21</strong></span>
+                                        <span>Age: <strong>{{ $profile->age() }}</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
                                         <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>Height: <strong>5.7</strong></span>
+                                        <span>Height: <strong>{{ $profile->settings->height }} CMs</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
                                         <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>Job: <strong>Working</strong></span>
+                                        <span>Job: <strong>{{ $profile->settings->occupations->name }}</strong></span>
                                     </div>
                                 </li>
                             </ul>
@@ -50,39 +50,23 @@
                         <!-- PROFILE ABOUT -->
                         <div class="pr-bio-c pr-bio-abo">
                             <h3>About</h3>
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                here, content here', making it look like readable English. </p>
-                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                                default model text.</p>
+                            <p>{!! $profile->settings->bio !!}</p>
                         </div>
                         <!-- END PROFILE ABOUT -->
                         <!-- PROFILE ABOUT -->
                         <div class="pr-bio-c pr-bio-gal" id="gallery">
                             <h3>Photo gallery</h3>
                             <div id="image-gallery">
+                                @forelse($profile->settings->details->where('category', 'photo') as $key => $photo)
                                 <div class="pro-gal-imag">
                                     <div class="img-wrapper">
-                                        <a href="#!"><img src="{{ asset('/assets/images/profiles/1.jpg') }}" class="img-responsive" alt=""></a>
+                                        <a href="#!"><img src="{{ asset($photo->name) }}" class="img-responsive" alt=""></a>
                                         <div class="img-overlay"><i class="fa fa-arrows-alt" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pro-gal-imag">
-                                    <div class="img-wrapper">
-                                        <a href="#!"><img src="{{ asset('/assets/images/profiles/6.jpg') }}" class="img-responsive" alt=""></a>
-                                        <div class="img-overlay"><i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pro-gal-imag">
-                                    <div class="img-wrapper">
-                                        <a href="#!"><img src="{{ asset('/assets/images/profiles/14.jpg') }}" class="img-responsive" alt=""></a>
-                                        <div class="img-overlay"><i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+                                @endforelse
                             </div>
                         </div>
                         <!-- END PROFILE ABOUT -->
