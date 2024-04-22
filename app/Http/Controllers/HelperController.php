@@ -10,7 +10,7 @@ class HelperController extends Controller
     public function profile($id)
     {
         $profile = User::findOrFail(decrypt($id));
-        $related = User::where('role', 21)->whereNot('id', decrypt($id))->where('religion', $profile->religion)->where('gender', $profile->gender)->inRandomOrder()->limit(10);
+        $related = User::where('role', 21)->whereNot('id', decrypt($id))->where('religion', $profile->religion)->where('gender', $profile->gender)->inRandomOrder()->limit(10)->get();
         return view('profile', compact('profile', 'related'));
     }
 }
