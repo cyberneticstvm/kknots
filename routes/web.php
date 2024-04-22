@@ -3,6 +3,7 @@
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\user\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,10 @@ Route::middleware(['web', 'auth'])->group(function () {
         Route::get('profile/photo/remove', 'removeProfilePhoto')->name('user.profile.photo.remove')->middleware('user');
         Route::get('other/photo/remove/{id}', 'removeOtherPhoto')->name('user.other.photo.remove')->middleware('user');
         Route::get('profile/horoscope/remove', 'removeHoroscope')->name('user.horoscope.remove')->middleware('user');
+    });
+
+    Route::prefix('user/')->controller(HelperController::class)->group(function () {
+        Route::get('profile/{id}', 'profile')->name('user.profile')->middleware('user');
     });
 });
 

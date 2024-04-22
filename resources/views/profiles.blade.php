@@ -139,7 +139,7 @@
                                             <span class="pro-ave-yes"></span>
                                         </div>
                                         <div class="pro-avl-status">
-                                            <h5>Last Active On: </h5>
+                                            <!--<h5>Last Active On: </h5>-->
                                         </div>
                                     </div>
                                     <!--END PROFILE IMAGE-->
@@ -154,7 +154,7 @@
                                             <span>Height: {{ $profile?->settings?->height}} Cms</span>
                                         </div>
                                         <div class="links">
-                                            <a href="{{ route('index') }}">More detaiils</a>
+                                            <a href="{{ route('user.profile', encrypt($profile->id)) }}">More detaiils</a>
                                         </div>
                                     </div>
                                     <!--END PROFILE NAME-->
