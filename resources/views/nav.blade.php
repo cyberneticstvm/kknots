@@ -65,7 +65,7 @@
                                 <ul>
                                     <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
                                     <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
-                                    <li><a href="{{ route('user.dashboard') }}">Profile settings</a></li>
+                                    <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
                                     <li><a href="{{ route('user.profile.edit') }}">Edit full profile</a></li>
                                     <li><a href="{{ route('logout') }}">Logout</a></li>
                                 </ul>

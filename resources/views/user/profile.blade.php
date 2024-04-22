@@ -331,7 +331,6 @@
                             <!--END PROFILE BIO-->
                             {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             {{ html()->form()->close() }}
-                            </form>
                         </div>
                     </div>
                 </div>

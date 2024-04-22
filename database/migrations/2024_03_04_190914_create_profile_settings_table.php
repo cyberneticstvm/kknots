@@ -52,6 +52,10 @@ return new class extends Migration
             $table->unsignedBigInteger('working_place_preference')->nullable();
             $table->string('profile_photo')->nullable();
             $table->string('horoscope')->nullable();
+            $table->boolean('show_profile_photo')->default('1');
+            $table->boolean('show_contact_number')->default('1');
+            $table->boolean('show_address')->default('1');
+            $table->boolean('show_email')->default('1');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

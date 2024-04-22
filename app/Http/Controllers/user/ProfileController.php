@@ -13,6 +13,7 @@ use App\Models\ProfileSettingDetail;
 use App\Models\Qualification;
 use App\Models\State;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -115,5 +116,23 @@ class ProfileController extends Controller
         $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
         $profile->update(['horoscope' => NULL]);
         return redirect()->back()->with("success", "Horoscope removed successfully.");
+    }
+
+    public function settings()
+    {
+        $settings = ProfileSetting::where('user_id', Auth::id())->first();
+        return view('user.settings', compact('settings'));
+    }
+
+    public function settingsUpdate(Request $request)
+    {
+        ProfileSetting::where('user_id', Auth::id())->update([
+            'show_profile_photo' => $request->photo,
+            'show_address' => $request->address,
+            'show_email' => $request->email,
+            'show_contact_number' => $request->mobile,
+            'updated_at' => Carbon::now(),
+        ]);
+        return redirect()->back()->with("success", "Profile settings updated successfully.");
     }
 }
