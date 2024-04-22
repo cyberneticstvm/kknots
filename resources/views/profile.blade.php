@@ -166,6 +166,7 @@
                         <div class="slid-inn pr-bio-c wedd-rel-pro">
                             <h3>Related profiles</h3>
                             <ul class="slider3">
+                                @forelse($related as $key => $item)
                                 <li>
                                     <div class="wedd-rel-box">
                                         <div class="wedd-rel-img">
@@ -173,64 +174,14 @@
                                             <span class="badge badge-success">21 Years old</span>
                                         </div>
                                         <div class="wedd-rel-con">
-                                            <h5>Christine</h5>
+                                            <h5>{{ $item->name }}</h5>
                                             <span>City: <b>New York City</b></span>
                                         </div>
                                         <a href="profile-details.html" class="fclick"></a>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="wedd-rel-box">
-                                        <div class="wedd-rel-img">
-                                            <img src="{{ asset('/assets/images/profiles/2.jpg') }}" alt="">
-                                            <span class="badge badge-success">21 Years old</span>
-                                        </div>
-                                        <div class="wedd-rel-con">
-                                            <h5>Christine</h5>
-                                            <span>City: <b>New York City</b></span>
-                                        </div>
-                                        <a href="profile-details.html" class="fclick"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wedd-rel-box">
-                                        <div class="wedd-rel-img">
-                                            <img src="{{ asset('/assets/images/profiles/3.jpg') }}" alt="">
-                                            <span class="badge badge-success">21 Years old</span>
-                                        </div>
-                                        <div class="wedd-rel-con">
-                                            <h5>Christine</h5>
-                                            <span>City: <b>New York City</b></span>
-                                        </div>
-                                        <a href="profile-details.html" class="fclick"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wedd-rel-box">
-                                        <div class="wedd-rel-img">
-                                            <img src="{{ asset('/assets/images/profiles/4.jpg') }}" alt="">
-                                            <span class="badge badge-success">21 Years old</span>
-                                        </div>
-                                        <div class="wedd-rel-con">
-                                            <h5>Christine</h5>
-                                            <span>City: <b>New York City</b></span>
-                                        </div>
-                                        <a href="profile-details.html" class="fclick"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wedd-rel-box">
-                                        <div class="wedd-rel-img">
-                                            <img src="{{ asset('/assets/images/profiles/6.jpg') }}" alt="">
-                                            <span class="badge badge-success">21 Years old</span>
-                                        </div>
-                                        <div class="wedd-rel-con">
-                                            <h5>Christine</h5>
-                                            <span>City: <b>New York City</b></span>
-                                        </div>
-                                        <a href="profile-details.html" class="fclick"></a>
-                                    </div>
-                                </li>
+                                @empty
+                                @endforelse
                             </ul>
                         </div>
                         <!-- END RELATED PROFILES -->
