@@ -192,18 +192,18 @@
                                         {{ html()->select('work_place', $districts, $profile?->work_place)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label class="lb">Education:</label>
-                                        {{ html()->select('qualification', $qualifications, $profile?->qualification)->class('form-select chosen-select')->placeholder('Select') }}
+                                        <label class="lb">Salary:</label>
+                                        {{ html()->select('salary', $incomes, $profile?->salary)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <label class="lb">Salary:</label>
-                                        {{ html()->select('salary', $incomes, $profile?->salary)->class('form-select chosen-select')->placeholder('Select') }}
-                                    </div>
-                                    <div class="col-md-6 form-group">
                                         <label class="lb">Job total experience (Years):</label>
                                         {{ html()->number('total_experience', $profile?->total_experience, '', '', 'any')->class('form-control')->placeholder('0') }}
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="lb">Education:</label>
+                                        {{ html()->select('qualification', $qualifications, $profile?->qualification)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
                                 <div class="row">

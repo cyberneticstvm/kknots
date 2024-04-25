@@ -97,6 +97,17 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                            <li>
+                                                <div class="sett-lef">
+                                                    <div class="sett-rad-left">
+                                                        <h5>Password</h5>
+                                                        <p>You can change your password here.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="sett-rig">
+                                                    {{ html()->password('password')->class('form-control')->placeholder('******') }}
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

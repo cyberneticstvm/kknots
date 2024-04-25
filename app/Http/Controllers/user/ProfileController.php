@@ -19,6 +19,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -139,6 +140,11 @@ class ProfileController extends Controller
             'show_contact_number' => $request->mobile,
             'updated_at' => Carbon::now(),
         ]);
+        if ($request->password) :
+            User::findOrFail(Auth::id())->update([
+                'password' => Hash::make($request->password),
+            ]);
+        endif;
         return redirect()->back()->with("success", "Profile settings updated successfully.");
     }
 }
