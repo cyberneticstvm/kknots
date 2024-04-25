@@ -61,20 +61,24 @@ class ProfileController extends Controller
             endif;
             $habits = [];
             $interests = [];
-            foreach ($request->habits as $key => $habit) :
-                $habits[] = [
-                    'profile_setting_id' => $profile->id,
-                    'name' => $habit,
-                    'category' => 'habit',
-                ];
-            endforeach;
-            foreach ($request->interests as $key => $interest) :
-                $interests[] = [
-                    'profile_setting_id' => $profile->id,
-                    'name' => $interest,
-                    'category' => 'interest',
-                ];
-            endforeach;
+            if ($request->habits) :
+                foreach ($request->habits as $key => $habit) :
+                    $habits[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $habit,
+                        'category' => 'habit',
+                    ];
+                endforeach;
+            endif;
+            if ($request->interests) :
+                foreach ($request->interests as $key => $interest) :
+                    $interests[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $interest,
+                        'category' => 'interest',
+                    ];
+                endforeach;
+            endif;
             DB::transaction(function () use ($input, $input1, $profile, $request, $interests, $habits) {
                 User::findOrFail($profile->user_id)->update($input1);
                 $profile->update($input);
