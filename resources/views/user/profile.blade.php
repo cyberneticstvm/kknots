@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Family Financial Status:</label>
-                                        {{ html()->select('financial_status', $extras->where('category', 'financial_level')->pluck('name', 'id'), $profile->settings()->financial_status)->class('chosen-select')->placeholder('Select') }}
+                                        {{ html()->select('financial_status', $extras->where('category', 'financial_level')->pluck('name', 'id'), $profile->financial_status)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
                             </div>
