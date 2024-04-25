@@ -3,6 +3,7 @@
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\Ajaxcontroller;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\user\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,10 @@ Route::middleware(['web'])->group(function () {
 Route::middleware(['web', 'auth'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/logout', 'logout')->name('logout');
+    });
+
+    Route::prefix('/ajax')->controller(Ajaxcontroller::class)->group(function () {
+        Route::get('/get/ddl/{type}/{id}', 'getDDL')->name('ajax.get.ddl');
     });
 
     Route::prefix('user/')->controller(ProfileController::class)->group(function () {

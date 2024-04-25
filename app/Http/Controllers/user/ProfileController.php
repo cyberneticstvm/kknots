@@ -11,6 +11,7 @@ use App\Models\Occupation;
 use App\Models\ProfileSetting;
 use App\Models\ProfileSettingDetail;
 use App\Models\Qualification;
+use App\Models\Religion;
 use App\Models\State;
 use App\Models\User;
 use Carbon\Carbon;
@@ -28,15 +29,16 @@ class ProfileController extends Controller
 
     public function editProfile()
     {
-        $extras = Extra::all();
-        $districts = District::pluck('name', 'id');
-        $states = State::all();
+        $extras = Extra::orderBy('name')->get();
+        $districts = District::orderBy('name')->pluck('name', 'id');
+        $states = State::orderBy('name')->get();
         $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
-        $occupations = Occupation::pluck('name', 'id');
-        $incomes = Income::pluck('name', 'id');
-        $qualifications = Qualification::pluck('name', 'id');
-        $casts = Caste::whereNotIn('name', ['Other'])->pluck('name', 'id');
-        return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts'));
+        $occupations = Occupation::orderBy('name')->pluck('name', 'id');
+        $incomes = Income::orderBy('name')->pluck('name', 'id');
+        $qualifications = Qualification::orderBy('name')->pluck('name', 'id');
+        $casts = Caste::whereNotIn('name', ['Other'])->orderBy('name')->pluck('name', 'id');
+        $religions = Religion::orderBy('name')->get();
+        return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts', 'religions'));
     }
 
     public function updateProfile(Request $request)
@@ -47,8 +49,8 @@ class ProfileController extends Controller
         ]);
         $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
         try {
-            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'interests', 'habits', 'photos'));
-            $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code'));
+            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'interests', 'habits', 'photos', 'caste', 'religion'));
+            $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'caste', 'religion'));
             if ($request->file('profile_photo')) :
                 $main_img = uploadFile($request->file('profile_photo'), $path = 'profile/' . $profile->user_id . '/photos');
                 $input['profile_photo'] = $main_img;

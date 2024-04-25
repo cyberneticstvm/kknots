@@ -8,7 +8,11 @@
                 <div class="profile">
                     <div class="pg-pro-big-im">
                         <div class="s1">
+                            @if($profile->settings->show_profile_photo)
                             <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
+                            @else
+
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -54,6 +58,7 @@
                         </div>
                         <!-- END PROFILE ABOUT -->
                         <!-- PROFILE ABOUT -->
+                        @if($profile->settings->show_profile_photo)
                         <div class="pr-bio-c pr-bio-gal" id="gallery">
                             <h3>Photo gallery</h3>
                             <div id="image-gallery">
@@ -69,16 +74,22 @@
                                 @endforelse
                             </div>
                         </div>
+                        @endif
                         <!-- END PROFILE ABOUT -->
                         <!-- PROFILE ABOUT -->
                         <div class="pr-bio-c pr-bio-conta">
                             <h3>Contact info</h3>
                             <ul>
-                                <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b>+92 (8800) 68 - 8960</span></li>
-                                <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Email:</b>angelinajoliewed@gmail.com</span>
+                                @if($profile->settings->show_contact_number)
+                                <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b>{{ $profile->mobile }}</span></li>
+                                @endif
+                                @if($profile->settings->show_email)
+                                <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Email:</b>{{ $profile->email }}</span>
+                                    @endif
                                 </li>
-                                <li><span><i class="fa fa fa-map-marker" aria-hidden="true"></i><b>Address: </b>28800
-                                        Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</span></li>
+                                @if($profile->settings->show_address)
+                                <li><span><i class="fa fa fa-map-marker" aria-hidden="true"></i><b>Address: </b>{{ $profile->settings->address }}</span></li>
+                                @endif
                             </ul>
                         </div>
                         <!-- END PROFILE ABOUT -->
@@ -86,19 +97,17 @@
                         <div class="pr-bio-c pr-bio-info">
                             <h3>Personal information</h3>
                             <ul>
-                                <li><b>Name:</b> Angelina Jolie</li>
-                                <li><b>Fatheres name:</b> John smith</li>
-                                <li><b>Family name:</b> Joney family</li>
-                                <li><b>Age:</b> 24</li>
-                                <li><b>Date of birth:</b>03 Jan 1998</li>
-                                <li><b>Height:</b>167cm</li>
-                                <li><b>Weight:</b>65kg</li>
-                                <li><b>Degree:</b> MSC Computer Science</li>
-                                <li><b>Religion:</b> Any</li>
-                                <li><b>Profession:</b> Working</li>
-                                <li><b>Company:</b> Google</li>
-                                <li><b>Position:</b> Web developer</li>
-                                <li><b>Salary:</b> $1000 p/m</li>
+                                <li><b>Name:</b> {{ $profile->name }}</li>
+                                <li><b>Father's name:</b> {{ $profile->settings->father_name }}</li>
+                                <li><b>Age:</b> {{ $profile->age() }}</li>
+                                <li><b>Date of birth:</b>{{ $profile->dob->format('d.M.Y') }}</li>
+                                <li><b>Height:</b>{{ $profile->settings->height }}</li>
+                                <li><b>Weight:</b>{{ $profile->settings->weight }}</li>
+                                <li><b>Degree:</b> {{ $profile->settings->qualifications->name }}</li>
+                                <li><b>Religion:</b> {{ $profile->religions?->name }}</li>
+                                <li><b>Profession:</b> {{ $profile->settings->occupations->name }}</li>
+                                <li><b>Company:</b> {{ $profile->settings->company_name }}</li>
+                                <li><b>Salary:</b> {{ $profile->settings->salary }}</li>
                             </ul>
                         </div>
                         <!-- END PROFILE ABOUT -->

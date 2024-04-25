@@ -28,6 +28,20 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
+                                        <label class="lb req">Religion:</label>
+                                        {{ html()->select('religion', $religions->pluck('name', 'id'), Auth::user()->religion)->attribute('data-type', 'caste')->attribute('data-child', 'caste')->class('chosen-select parent')->placeholder('Select') }}
+                                        @error('religion')
+                                        <small class="text-danger">{{ $errors->first('religion') }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="lb req">Caste:</label>
+                                        {{ html()->select('caste', $casts, Auth::user()->caste)->class('chosen-select caste')->placeholder('Select') }}
+                                        @error('caste')
+                                        <small class="text-danger">{{ $errors->first('caste') }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
                                         <label class="lb req">Date of Birth:</label>
                                         {{ html()->date('dob', Auth::user()->dob->format('Y-m-d'))->class('form-control') }}
                                         @error('dob')
@@ -64,18 +78,22 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <label class="lb">City:</label>
-                                        {{ html()->select('city', $districts, $profile?->city)->class('form-select chosen-select')->placeholder('Select') }}
+                                        <label class="lb">State:</label>
+                                        {{ html()->select('state', $states->pluck('name', 'id'), $profile?->state ?? 0)->class('form-select chosen-select parent')->attribute('data-type', 'state')->attribute('data-child', 'district')->placeholder('Select') }}
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label class="lb">State:</label>
-                                        {{ html()->select('state', $states->pluck('name', 'id'), $profile?->state ?? $states->where('default', 'true')->first()->id)->class('form-select chosen-select')->placeholder('Select') }}
+                                        <label class="lb">City:</label>
+                                        {{ html()->select('city', $districts, $profile?->city ?? '')->class('form-select chosen-select district')->placeholder('Select') }}
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label class="lb">Height in Cm:</label>
+                                    <div class="col-md-4 form-group">
+                                        <label class="lb">Height:</label>
                                         {{ html()->number('height', $profile?->height, '1', '', 'any')->class('form-control')->placeholder('0') }}
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label class="lb">Unit</label>
+                                        {{ html()->select('height_unit', array('Cm' => 'Cm', 'Feet' => 'Feet'), $profile->height_unit ?? 'Cm')->class('form-select')->placeholder('Select') }}
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Weight in Kg:</label>
@@ -149,7 +167,7 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Family Financial Status:</label>
-                                        {{ html()->select('finacial_status', $extras->where('category', 'finacial_level')->pluck('name', 'id'), Auth::user()->finacial_status)->class('chosen-select')->placeholder('Select') }}
+                                        {{ html()->select('financial_status', $extras->where('category', 'financial_level')->pluck('name', 'id'), Auth::user()->financial_status)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
                             </div>

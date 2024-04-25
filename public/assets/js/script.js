@@ -28,4 +28,23 @@ $(function () {
             alert("Your browser doesn't support File API!"); //if File API is absent
         }
     });
+
+    $(document).on("change", ".parent", function () {
+        let dis = $(this);
+        let type = dis.data('type'); let id = dis.val(); let child = dis.data('child');
+        $.ajax({
+            type: 'GET',
+            url: '/ajax/get/ddl/' + type + '/' + id,
+            success: function (res) {
+                $("." + child).empty();
+                $.map(res, function (obj) {
+                    $("." + child).append("<option value='" + obj.id + "'>" + obj.name + "</option>");
+                    $("." + child).trigger('chosen:updated');
+                });
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    })
 })

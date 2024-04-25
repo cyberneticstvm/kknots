@@ -30,4 +30,9 @@ class ProfileSetting extends Model
     {
         return $this->belongsTo(District::class, 'city', 'id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

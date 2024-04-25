@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('city')->nullable();
             $table->unsignedBigInteger('state')->nullable();
             $table->decimal('height', 5, 2)->nullable();
+            $table->string('height_unit', 5)->nullable();
             $table->decimal('weight', 5, 2)->nullable();
             $table->text('address')->nullable();
             $table->string('father_name', 100)->nullable();
@@ -31,7 +32,7 @@ return new class extends Migration
             $table->string('contact_person_name', 150)->nullable();
             $table->string('contact_person_mobile', 10)->nullable();
             $table->string('relationship_with_candidate', 50)->nullable();
-            $table->unsignedBigInteger('finacial_status')->nullable();
+            $table->unsignedBigInteger('financial_status')->nullable();
             $table->unsignedBigInteger('occupation')->nullable();
             $table->string('company_name', 150)->nullable();
             $table->unsignedBigInteger('work_place')->nullable();

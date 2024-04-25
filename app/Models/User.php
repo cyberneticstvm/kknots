@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return Carbon::parse($this->dob)->age;
     }
+
+    public function religions()
+    {
+        return $this->belongsTo(Religion::class, 'religion', 'id');
+    }
+
+    public function casts()
+    {
+        return $this->belongsTo(Caste::class, 'caste', 'id');
+    }
 }
