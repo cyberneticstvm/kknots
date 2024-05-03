@@ -221,10 +221,10 @@
                             <!--PROFILE BIO-->
                             <div class="edit-pro-parti">
                                 <div class="form-tit">
-                                    <h4>interests</h4>
-                                    <h1>Habits</h1>
+                                    <h4>Interests & Habits</h4>
+                                    <h1>Interests & Habits</h1>
                                 </div>
-                                <div class="chosenini">
+                                <!--<div class="chosenini">
                                     <div class="form-group">
                                         <label class="lb">Interests:</label>
                                         {{ html()->select('interests[]', $extras->where('category', 'interest')->pluck('name', 'id'), $profile?->details->where('category', 'interest')->pluck('name'))->class('chosen-select')->placeholder('Select')->multiple() }}
@@ -235,7 +235,161 @@
                                         <label class="lb">Habits:</label>
                                         {{ html()->select('habits[]', $extras->where('category', 'habit')->pluck('name', 'id'), $profile?->details->where('category', 'habit')->pluck('name'))->class('chosen-select')->placeholder('Select')->multiple() }}
                                     </div>
-                                </div>
+                                </div>-->
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>My Interests</th>
+                                            <th>Partner Preferences</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Drinking Habits</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'drinking') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_drinking[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_drinking[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Smoking Habits</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'smoking') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_smoking[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_smoking[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Watching Television Programs</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'tv') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_tv[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_tv[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Social Media Activity</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'social') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_social[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_social[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Food Habits</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'food') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_food[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_food[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Reading Habits</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'reading') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_reading[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_reading[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Movie Habits</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'movie') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_movie[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_movie[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Movie Languages</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'language') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_language[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_language[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                        <tr>
+                                            <td colspan="2" class="fw-bold text-primary">Friend Circles</td>
+                                        </tr>
+                                        @forelse($extras->where('category', 'friend') as $key => $item)
+                                        <tr>
+                                            <td>
+                                                {{ html()->checkbox('my_habit_friend[]', $profile->details?->where('category', 'user')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'my_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                            <td>
+                                                {{ html()->checkbox('partner_habit_friend[]', $profile->details?->where('category', 'partner')->where('name', $item->id)?->first() ? 'checked' : '')->attribute('id', 'partner_chk_'.$item->id)->attribute('value', $item->id) }}
+                                                &nbsp;&nbsp;{{ $item->name }}
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->

@@ -50,7 +50,7 @@ class ProfileController extends Controller
         ]);
         $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
         try {
-            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'interests', 'habits', 'photos', 'caste', 'religion'));
+            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend'));
             $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'caste', 'religion'));
             if ($request->file('profile_photo')) :
                 $main_img = uploadFile($request->file('profile_photo'), $path = 'profile/' . $profile->user_id . '/photos');
@@ -60,27 +60,170 @@ class ProfileController extends Controller
                 $hs = uploadFile($request->file('horoscope'), $path = 'profile/' . $profile->user_id . '/horoscope');
                 $input['horoscope'] = $hs;
             endif;
-            $habits = [];
-            $interests = [];
-            if ($request->habits) :
-                foreach ($request->habits as $key => $habit) :
-                    $habits[] = [
+            $data = [];
+            if ($request->my_habit_drinking) :
+                foreach ($request->my_habit_drinking as $key => $item) :
+                    $data[] = [
                         'profile_setting_id' => $profile->id,
-                        'name' => $habit,
-                        'category' => 'habit',
+                        'name' => $item,
+                        'category' => 'user',
                     ];
                 endforeach;
             endif;
-            if ($request->interests) :
-                foreach ($request->interests as $key => $interest) :
-                    $interests[] = [
+            if ($request->partner_habit_drinking) :
+                foreach ($request->partner_habit_drinking as $key => $item) :
+                    $data[] = [
                         'profile_setting_id' => $profile->id,
-                        'name' => $interest,
-                        'category' => 'interest',
+                        'name' => $item,
+                        'category' => 'partner',
                     ];
                 endforeach;
             endif;
-            DB::transaction(function () use ($input, $input1, $profile, $request, $interests, $habits) {
+            if ($request->my_habit_smoking) :
+                foreach ($request->my_habit_smoking as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_smoking) :
+                foreach ($request->partner_habit_smoking as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_tv) :
+                foreach ($request->my_habit_tv as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_tv) :
+                foreach ($request->partner_habit_tv as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_social) :
+                foreach ($request->my_habit_social as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_social) :
+                foreach ($request->partner_habit_social as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_food) :
+                foreach ($request->my_habit_food as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_food) :
+                foreach ($request->partner_habit_food as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_reading) :
+                foreach ($request->my_habit_reading as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_reading) :
+                foreach ($request->partner_habit_reading as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_movie) :
+                foreach ($request->my_habit_movie as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_movie) :
+                foreach ($request->partner_habit_movie as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_language) :
+                foreach ($request->my_habit_language as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_language) :
+                foreach ($request->partner_habit_language as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            if ($request->my_habit_friend) :
+                foreach ($request->my_habit_friend as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'user',
+                    ];
+                endforeach;
+            endif;
+            if ($request->partner_habit_friend) :
+                foreach ($request->partner_habit_friend as $key => $item) :
+                    $data[] = [
+                        'profile_setting_id' => $profile->id,
+                        'name' => $item,
+                        'category' => 'partner',
+                    ];
+                endforeach;
+            endif;
+            DB::transaction(function () use ($input, $input1, $profile, $request, $data) {
                 User::findOrFail($profile->user_id)->update($input1);
                 $profile->update($input);
                 if ($request->file('photos')) :
@@ -94,10 +237,8 @@ class ProfileController extends Controller
                         ]);
                     endforeach;
                 endif;
-                ProfileSettingDetail::where('profile_setting_id', $profile->id)->where('category', 'habit')->delete();
-                ProfileSettingDetail::where('profile_setting_id', $profile->id)->where('category', 'interest')->delete();
-                ProfileSettingDetail::insert($habits);
-                ProfileSettingDetail::insert($interests);
+                ProfileSettingDetail::where('profile_setting_id', $profile->id)->whereIn('category', ['user', 'partner'])->delete();
+                ProfileSettingDetail::insert($data);
             });
         } catch (Exception $e) {
             return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());
