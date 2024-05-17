@@ -23,19 +23,16 @@
             <div class="lhs">
                 <ul>
                     <li><a href="#!" class="ser-open"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('index') }}">About</a></li>
+                    <li><a href="{{ route('index') }}">Contact</a></li>
                 </ul>
             </div>
             <div class="rhs">
                 <ul>
-                    <li><a href="tel:+9704462944"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+01 5312
-                            5312</a></li>
-                    <li><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp; help@company.com</a></li>
-                    <li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                    <li><a href="tel:+919778292355"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+91 9778292355</a></li>
+                    <li><a href="mailto:info@keralaknots.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp; help@keralaknots.com</a></li>
+                    <li><a href="https://www.facebook.com/keralaknots" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/kerala.knots" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -50,10 +47,10 @@
         <p><strong>Best Wedding Matrimony</strong> lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu
             fringilla.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <ul class="menu-pop-info">
-            <li><a href="#!"><i class="fa fa-phone" aria-hidden="true"></i>+92 (8800) 68 - 8960</a></li>
-            <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i>+92 (8800) 68 - 8960</a></li>
-            <li><a href="#!"><i class="fa fa-envelope-o" aria-hidden="true"></i>help@company.com</a></li>
-            <li><a href="#!"><i class="fa fa-map-marker" aria-hidden="true"></i>3812 Lena Lane City Jackson Mississippi</a></li>
+            <li><a href="tel:+919778292355"><i class="fa fa-phone" aria-hidden="true"></i>+91 9778292355</a></li>
+            <li><a href="https://wa.me/919778292355" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i>+91 9778292355</a></li>
+            <li><a href="mailto:help@keralaknots.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>help@keralaknots.com</a></li>
+            <li><a href="#!"><i class="fa fa-map-marker" aria-hidden="true"></i>KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</a></li>
         </ul>
         <div class="menu-pop-help">
             <h4>Support Team</h4>
@@ -63,17 +60,13 @@
             <div class="user-bio">
                 <h5>Kerala Knots</h5>
                 <span>Senior personal advisor</span>
-                <a href="enquiry.html" class="btn btn-primary btn-sm">Ask your doubts</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary btn-sm">Ask your doubts</a>
             </div>
         </div>
         <div class="menu-pop-soci">
             <ul>
-                <li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/keralaknots" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/kerala.knots" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
@@ -100,12 +93,8 @@
         </div>
         <div class="menu-pop-soci">
             <ul>
-                <li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                <li><a href="#!"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/keralaknots" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/kerala.knots" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
         </div>
 
@@ -114,7 +103,11 @@
             <div class="inn">
                 <h3>Tell us your Needs</h3>
                 <p>Tell us what kind of service you are looking for.</p>
-                <a href="enquiry.html">Register for free</a>
+                @auth
+                <a href="{{ route('logout') }}">Logout</a>
+                @else
+                <a href="{{ route('register') }}">Register for free</a>
+                @endauth
             </div>
         </div>
         <!-- END HELP BOX -->

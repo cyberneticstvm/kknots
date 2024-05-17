@@ -24,6 +24,8 @@ Route::middleware(['web'])->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/login', 'login')->name('login');
         Route::get('/register', 'register')->name('register');
+        Route::get('/contact', 'contact')->name('contact');
+        Route::get('/about', 'about')->name('about');
         Route::post('/search/profile', 'searchProfile')->name('search.profile');
     });
 
