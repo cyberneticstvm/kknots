@@ -67,13 +67,26 @@
     <div class="mob-me-clo"><img src="{{ asset('/assets/images/icon/close.svg') }}" alt=""></div>
     <div class="mv-bus">
         <div class="head-pro">
-            <img src="{{ asset('/assets/images/profiles/1.jpg') }}" alt="" loading="lazy">
-            <b>user profile</b><br>
-            <h4>Ashley emyy</h4>
+            <img src="{{ asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
+            <b>Hello</b><br>
+            <h4>{{ Auth::user() ? Auth::user()->name : 'Guest'}}</h4>
         </div>
         <ul>
-            <li><a href="{{ route('login') }}">Login</a></li>
+            @auth
+            @if(Auth::user()->role == 21)
+            <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
+            <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
+            <li><a href="{{ route('user.profile.edit') }}">Edit full profile</a></li>
+            <li><a href="{{ route('logout') }}">Logout</a></li>
+            @else
+            <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('admin.manage.staff') }}">Manage Staff / Users</a></li>
+            @endif
+            @else
             <li><a href="{{ route('register') }}">Register</a></li>
+            <li><a href="{{ route('login') }}">Login</a></li>
+            @endauth
         </ul>
     </div>
 </div>
