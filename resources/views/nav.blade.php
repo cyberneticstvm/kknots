@@ -102,9 +102,9 @@
                 <!--MOBILE MENU-->
                 <div class="mob-menu">
                     <div class="mob-me-ic">
-                        <span class="ser-open mobile-ser">
+                        <!--<span class="ser-open mobile-ser">
                             <img src="{{ asset('/assets/images/icon/search.svg') }}" alt="">
-                        </span>
+                        </span>-->
                         <span class="mobile-exprt" data-mob="dashbord">
                             <img src="{{ asset('/assets/images/icon/users.svg') }}" alt="">
                         </span>
