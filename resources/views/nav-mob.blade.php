@@ -4,10 +4,10 @@
     <div class="mv-bus">
         <h4><i class="fa fa-globe" aria-hidden="true"></i> EXPLORE CATEGORY</h4>
         <ul>
-            <li><a href="all-profiles.html">Browse profiles</a></li>
-            <li><a href="wedding.html">Wedding page</a></li>
-            <li><a href="services.html">All Services</a></li>
-            <li><a href="plans.html">Join Now</a></li>
+            <li><a href="{{ route('index') }}">Browse profiles</a></li>
+            <li><a href="{{ route('index') }}">Wedding page</a></li>
+            <li><a href="{{ route('index') }}">All Services</a></li>
+            <li><a href="{{ route('index') }}">Join Now</a></li>
         </ul>
         <h4><i class="fa fa-align-center" aria-hidden="true"></i> Menu</h4>
         <ul>
