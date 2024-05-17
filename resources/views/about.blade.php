@@ -27,21 +27,21 @@
                         <div>
                             <img src="{{ asset('/assets/images/icon/prize.png') }}" alt="">
                             <h4>Genuine profiles</h4>
-                            <p>The most trusted wedding matrimony brand</p>
+                            <p>We prioritize your safety and peace of mind by conducting thorough verifications to ensure authenticity and family backgrounds.</p>
                         </div>
                     </li>
                     <li>
                         <div>
                             <img src="{{ asset('/assets/images/icon/trust.png') }}" alt="">
                             <h4>Most trusted</h4>
-                            <p>The most trusted wedding matrimony brand</p>
+                            <p>Your privacy is our priority. Our secure platform ensures your personal information remains confidential.</p>
                         </div>
                     </li>
                     <li>
                         <div>
                             <img src="{{ asset('/assets/images/icon/rings.png') }}" alt="">
                             <h4>2000+ weddings</h4>
-                            <p>The most trusted wedding matrimony brand</p>
+                            <p>With members from various cultures, religions, and backgrounds, our platform offers a diverse pool of potential matches</p>
                         </div>
                     </li>
                 </ul>
