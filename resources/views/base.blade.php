@@ -83,6 +83,7 @@
                     <h4>SOCIAL MEDIA</h4>
                     <ul>
                         <li><a href="https://www.facebook.com/keralaknots" target="_blank"><img src="{{ asset('/assets/images/social/3.png') }}" alt="" loading="lazy"></a></li>
+                        <li><a href="https://www.instagram.com/kerala.knots/" target="_blank"><img src="{{ asset('/assets/images/social/7.png') }}" alt="" loading="lazy"></a></li>
                     </ul>
                 </div>
             </div>
