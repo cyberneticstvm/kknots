@@ -9,27 +9,26 @@
             <li><a href="services.html">All Services</a></li>
             <li><a href="plans.html">Join Now</a></li>
         </ul>
-        <h4><i class="fa fa-align-center" aria-hidden="true"></i> All Pages</h4>
+        <h4><i class="fa fa-align-center" aria-hidden="true"></i> Menu</h4>
         <ul>
-            <li><a href="all-profiles.html">All profiles</a></li>
-            <li><a href="profile-details.html">Profile details</a></li>
-            <li><a href="wedding.html">Wedding</a></li>
-            <li><a href="wedding-video.html">Wedding video</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="plans.html">Pricing plans</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="sign-up.html">Sign-up</a></li>
-            <li><a href="photo-gallery.html">Photo gallery</a></li>
-            <li><a href="photo-gallery-1.html">Photo gallery 1</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="blog-detail.html">Blog detail</a></li>
-            <li><a href="enquiry.html">Ask your doubts</a></li>
-            <li><a href="make-reservation.html">Make Reservation</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="coming-soon.html" target="_blank">Coming soon</a></li>
-            <li><a href="404.html">404</a></li>
+            <li><a href="{{ route('index') }}">Home</a></li>
+            <li><a href="{{ route('about') }}">About Us</a></li>
+            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+            @auth
+            @if(Auth::user()->role == 21)
+            <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
+            <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
+            <li><a href="{{ route('user.profile.edit') }}">Edit full profile</a></li>
+            <li><a href="{{ route('logout') }}">Logout</a></li>
+            @else
+            <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('admin.manage.staff') }}">Manage Staff / Users</a></li>
+            @endif
+            @else
+            <li><a href="{{ route('register') }}">Register</a></li>
+            <li><a href="{{ route('login') }}">Login</a></li>
+            @endauth
         </ul>
         <div class="menu-pop-help">
             <h4>Support Team</h4>
