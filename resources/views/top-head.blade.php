@@ -1,7 +1,7 @@
 <!-- POPUP SEARCH -->
-<div class="pop-search">
+<!--<<div class="pop-search">
     <span class="ser-clo">+</span>
-    <div class="inn">
+    div class="inn">
         <form>
             <input type="text" placeholder="Search here...">
         </form>
@@ -13,7 +13,7 @@
             <a href="all-profiles.html">New profiles</a>
         </div>
     </div>
-</div>
+</div>-->
 <!-- END -->
 
 <!-- TOP MENU -->
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="lhs">
                 <ul>
-                    <li><a href="#!" class="ser-open"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    <!--<li><a href="#!" class="ser-open"><i class="fa fa-search" aria-hidden="true"></i></a></li>-->
                     <li><a href="{{ route('about') }}">About</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>

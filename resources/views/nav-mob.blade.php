@@ -67,7 +67,7 @@
     <div class="mob-me-clo"><img src="{{ asset('/assets/images/icon/close.svg') }}" alt=""></div>
     <div class="mv-bus">
         <div class="head-pro">
-            <img src="{{ asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
+            <img src="{{ Auth::user() ? asset(Auth::user()->settings?->profile_photo) ?? asset('/assets/images/profiles/1.svg') : asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
             <b>Hello</b><br>
             <h4>{{ Auth::user() ? Auth::user()->name : 'Guest'}}</h4>
         </div>
