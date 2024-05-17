@@ -140,16 +140,6 @@
                             </div>
                         </li>
                         <li>
-                            <div class="wow fadeInUp hacc hacc3" data-wow-delay="0.3s">
-                                <div class="con">
-                                    <img src="{{ asset('/assets/images/icon/couple.png') }}" alt="" loading="lazy">
-                                    <h4>All Services</h4>
-                                    <p>1200+ Profiles</p>
-                                    <a href="services.html">View more</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
                             <div class="wow fadeInUp hacc hacc4" data-wow-delay="0.4s">
                                 <div class="con">
                                     <img src="{{ asset('/assets/images/icon/hall.png') }}" alt="" loading="lazy">
@@ -166,16 +156,6 @@
                                     <h4>Photo gallery</h4>
                                     <p>1200+ Profiles</p>
                                     <a href="photo-gallery.html">View more</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="wow fadeInUp hacc hacc4" data-wow-delay="0.4s">
-                                <div class="con">
-                                    <img src="{{ asset('/assets/images/icon/cake.png') }}" alt="" loading="lazy">
-                                    <h4>Blog & Articles</h4>
-                                    <p>Start for free</p>
-                                    <a href="blog.html">Get started</a>
                                 </div>
                             </div>
                         </li>

@@ -53,43 +53,41 @@
     <section class="wed-hom-footer">
         <div class="container">
             <div class="row foot-supp">
-                <h2><span>Free support:</span> +92 (8800) 68 - 8960 &nbsp;&nbsp;|&nbsp;&nbsp; <span>Email:</span>
-                    info@example.com</h2>
+                <h2><span>For support:</span> <a href="tel:+919778292355">+91 9778292355</a> &nbsp;&nbsp;|&nbsp;&nbsp; <span>Email:</span>
+                    <a href="mailto:help@keralaknots.com">help@keralaknots.com</a>
+                </h2>
             </div>
             <div class="row wed-foot-link wed-foot-link-1">
                 <div class="col-md-4">
                     <h4>Get In Touch</h4>
-                    <p>Address: 3812 Lena Lane City Jackson Mississippi</p>
-                    <p>Phone: <a href="tel:+917904462944">+92 (8800) 68 - 8960</a></p>
-                    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                    <p>Address: KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</p>
+                    <p>Phone: <a href="tel:+919778292355">+91 9778292355</a></p>
+                    <p>Email: <a href="mailto:help@keralaknots.com">help@keralaknots.com</a></p>
                 </div>
                 <div class="col-md-4">
                     <h4>HELP &amp; SUPPORT</h4>
                     <ul>
-                        <li><a href="about-us.html">About company</a>
+                        <li><a href="{{ route('index') }}">About Us</a>
                         </li>
-                        <li><a href="#!">Contact us</a>
+                        <li><a href="{{ route('index') }}">Contact us</a>
                         </li>
-                        <li><a href="#!">Feedback</a>
+                        <li><a href="{{ route('index') }}">Register</a>
                         </li>
-                        <li><a href="about-us.html#faq">FAQs</a>
+                        <li><a href="{{ route('index') }}">Login</a>
                         </li>
-                        <li><a href="about-us.html#testimonials">Testimonials</a>
+                        <li><a href="{{ route('index') }}">Find your partner</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4 fot-soc">
                     <h4>SOCIAL MEDIA</h4>
                     <ul>
-                        <li><a href="#!"><img src="{{ asset('/assets/images/social/1.png') }}" alt="" loading="lazy"></a></li>
-                        <li><a href="#!"><img src="{{ asset('/assets/images/social/2.png') }}" alt="" loading="lazy"></a></li>
-                        <li><a href="#!"><img src="{{ asset('/assets/images/social/3.png') }}" alt="" loading="lazy"></a></li>
-                        <li><a href="#!"><img src="{{ asset('/assets/images/social/5.png') }}" alt="" loading="lazy"></a></li>
+                        <li><a href="https://www.facebook.com/keralaknots" target="_blank"><img src="{{ asset('/assets/images/social/3.png') }}" alt="" loading="lazy"></a></li>
                     </ul>
                 </div>
             </div>
             <div class="row foot-count">
-                <p>Company name Site - Trusted by over thousands of Boys & Girls for successfull marriage. <a href="sign-up.html" class="btn btn-primary btn-sm">Join us today !</a></p>
+                <p>Kerala Knots - Trusted by over thousands of Boys & Girls for successfull marriage. <a href="{{ route('register') }}" class="btn btn-primary btn-sm">Join us today !</a></p>
             </div>
         </div>
     </section>
@@ -100,7 +98,7 @@
         <div class="cr">
             <div class="container">
                 <div class="row">
-                    <p>Copyright © <span id="cry">2023</span> <a href="#!" target="_blank">Company.com</a> All
+                    <p>Copyright © <span id="cry">{{ date('Y') }}</span> <a href="{{ route('index') }}" target="_blank">keralaknots.com</a> All
                         rights reserved.</p>
                 </div>
             </div>
