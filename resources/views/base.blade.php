@@ -98,7 +98,7 @@
         <div class="cr">
             <div class="container">
                 <div class="row">
-                    <p>Copyright © <span id="cry">{{ date('Y') }}</span> <a href="{{ route('index') }}" target="_blank">keralaknots.com</a> All
+                    <p>Copyright © <span id="">{{ date('Y') }}</span> <a href="{{ route('index') }}" target="_blank">keralaknots.com.</a> All
                         rights reserved.</p>
                 </div>
             </div>
