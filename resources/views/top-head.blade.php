@@ -23,8 +23,8 @@
             <div class="lhs">
                 <ul>
                     <li><a href="#!" class="ser-open"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                    <li><a href="{{ route('index') }}">About</a></li>
-                    <li><a href="{{ route('index') }}">Contact</a></li>
+                    <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
             <div class="rhs">

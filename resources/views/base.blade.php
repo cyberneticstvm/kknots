@@ -67,13 +67,13 @@
                 <div class="col-md-4">
                     <h4>HELP &amp; SUPPORT</h4>
                     <ul>
-                        <li><a href="{{ route('index') }}">About Us</a>
+                        <li><a href="{{ route('about') }}">About Us</a>
                         </li>
-                        <li><a href="{{ route('index') }}">Contact us</a>
+                        <li><a href="{{ route('contact') }}">Contact us</a>
                         </li>
-                        <li><a href="{{ route('index') }}">Register</a>
+                        <li><a href="{{ route('register') }}">Register</a>
                         </li>
-                        <li><a href="{{ route('index') }}">Login</a>
+                        <li><a href="{{ route('login') }}">Login</a>
                         </li>
                         <li><a href="{{ route('index') }}">Find your partner</a>
                         </li>
