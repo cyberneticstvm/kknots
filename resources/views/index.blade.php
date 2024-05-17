@@ -362,7 +362,7 @@
                                 </div>
                                 <div class="tline-con animate animate__animated animate__slow" data-ani="animate__fadeInUp">
                                     <h5>Register</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Create your profile by filling in basic details, preferences, and interests.</p>
                                 </div>
                             </div>
@@ -371,7 +371,7 @@
                             <div class="tline-inn tline-inn-reve">
                                 <div class="tline-con animate animate__animated animate__slower" data-ani="animate__fadeInUp">
                                     <h5>Find your Match</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Browse through suggested matches and use our advanced search filters to find potential partners.</p>
                                 </div>
                                 <div class="tline-im animate animate__animated animate__slow" data-ani="animate__fadeInUp">
@@ -386,7 +386,7 @@
                                 </div>
                                 <div class="tline-con animate animate__animated animate__slow" data-ani="animate__fadeInUp">
                                     <h5>Send Interest</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Express interest and start conversations with members who catch your eye.</p>
                                 </div>
                             </div>
@@ -395,7 +395,7 @@
                             <div class="tline-inn tline-inn-reve">
                                 <div class="tline-con animate animate__animated animate__slower" data-ani="animate__fadeInUp">
                                     <h5>Get Profile Information</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Get your preferred profile's information.</p>
                                 </div>
                                 <div class="tline-im animate animate__animated animate__slow" data-ani="animate__fadeInUp">
@@ -410,7 +410,7 @@
                                 </div>
                                 <div class="tline-con animate animate__animated animate__slow" data-ani="animate__fadeInUp">
                                     <h5>Start Meetups</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Arrange meetings or video calls through our platform to take your connection to the next level.</p>
                                 </div>
                             </div>
@@ -419,7 +419,7 @@
                             <div class="tline-inn tline-inn-reve">
                                 <div class="tline-con animate animate__animated animate__slower" data-ani="animate__fadeInUp">
                                     <h5>Getting Marriage</h5>
-                                    <span>Timing: 7:00 PM</span>
+                                    <span>Kerala Knots</span>
                                     <p>Get married and start a new life.</p>
                                 </div>
                                 <div class="tline-im animate animate__animated animate__slow" data-ani="animate__fadeInUp">
