@@ -39,4 +39,14 @@ class WebController extends Controller
         $profiles = User::where('role', 21)->where('gender', $request->gender)->get();
         return view('profiles', compact('extras', 'religions', 'states', 'inputs', 'profiles'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

@@ -4728,7 +4728,7 @@ span.mail::before {
 }
 
 .prof-rhs-help {
-    background: url("../images/tell-us.jpg") 0% 0% / cover no-repeat;
+    background: url("../images/tell-us.svg") 0% 0% / cover no-repeat;
     padding: 25px;
     border-radius: 10px;
     margin: 0 0 25px 0;
@@ -12561,4 +12561,8 @@ select {
     .wedd-info ul li i {
         margin-right: 7px;
     }
+}
+
+.text-justify {
+    text-align: justify !important;
 }

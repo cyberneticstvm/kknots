@@ -44,8 +44,7 @@
     <span class="menu-pop-clo"><i class="fa fa-times" aria-hidden="true"></i></span>
     <div class="inn">
         <img src="{{ asset('/assets/images/kk-logo-png.png') }}" alt="Kerala Knots" loading="lazy" class="logo-brand-only">
-        <p><strong>Best Wedding Matrimony</strong> lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu
-            fringilla.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <p class="text-justify">At <strong>Kerala Knots</strong>, we believe in the power of meaningful connections. Our mission is to help you find a life partner who not only shares your interests and values but also complements your personality and lifestyle. Whether you are looking for a love marriage or an arranged marriage, we are here to make your journey towards finding your soulmate smooth and successful.</p>
         <ul class="menu-pop-info">
             <li><a href="tel:+919778292355"><i class="fa fa-phone" aria-hidden="true"></i>+91 9778292355</a></li>
             <li><a href="https://wa.me/919778292355" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i>+91 9778292355</a></li>
@@ -55,7 +54,7 @@
         <div class="menu-pop-help">
             <h4>Support Team</h4>
             <div class="user-pro">
-                <img src="{{ asset('/assets/images/profiles/1.jpg') }}" alt="" loading="lazy">
+                <img src="{{ asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
             </div>
             <div class="user-bio">
                 <h5>Kerala Knots</h5>
@@ -79,7 +78,7 @@
         <div class="menu-pop-help">
             <h4>Support Team</h4>
             <div class="user-pro">
-                <img src="{{ asset('/assets/images/profiles/1.jpg') }}" alt="" loading="lazy">
+                <img src="{{ asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
             </div>
             <div class="user-bio">
                 <h5>Hello, {{ Auth::user() ? Auth::user()->name : 'Guest'}}</h5>

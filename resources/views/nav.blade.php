@@ -15,7 +15,7 @@
                 <div class="bl">
                     <ul>
                         <li><a href="{{ route('index') }}">Home</a></li>
-                        <li><a href="{{ route('index') }}">About Us</a></li>
+                        <li><a href="{{ route('about') }}">About Us</a></li>
                         <li class="smenu-pare">
                             <span class="smenu">Explore</span>
                             <div class="smenu-open smenu-box">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{ route('index') }}">Contact Us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         @auth
                         @if(Auth::user()->role == 21)
                         <li class="smenu-pare">
@@ -92,7 +92,7 @@
                 <!-- USER PROFILE -->
                 <div class="al">
                     <div class="head-pro">
-                        <img src="{{ asset('/assets/images/profiles/1.jpg') }}" alt="" loading="lazy">
+                        <img src="{{ Auth::user() ? asset(Auth::user()->settings?->profile_photo) ?? asset('/assets/images/profiles/1.svg') : asset('/assets/images/profiles/1.svg') }}" alt="" loading="lazy">
                         <b>Hello</b><br>
                         <h4>{{ Auth::user() ? Auth::user()->name : 'Guest'}}</h4>
                         <span class="fclick"></span>
