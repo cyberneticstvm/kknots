@@ -913,19 +913,19 @@ img {
 }
 
 .menu-box-1 {
-    background-image: url('../images/gallery/2.jpg');
+    background-image: url('../images/kknots/wedding.svg');
 }
 
 .menu-box-2 {
-    background-image: url('../images/profiles/2.jpg');
+    background-image: url('../images/kknots/browse1.svg');
 }
 
 .menu-box-3 {
-    background-image: url('../images/profiles/3.jpg');
+    background-image: url('../images/kknots/gallery1.svg');
 }
 
 .menu-box-4 {
-    background-image: url('../images/profiles/4.jpg');
+    background-image: url('../images/kknots/join.svg');
 }
 
 .menu-box-1:before {
@@ -2234,7 +2234,7 @@ table td {}
 }
 
 .home-acces ul li div.hacc1 {
-    background-image: url("../images/couples/1.jpg");
+    background-image: url("../images/kknots/browse.svg");
 }
 
 .home-acces ul li div.hacc2 {
@@ -2242,7 +2242,7 @@ table td {}
 }
 
 .home-acces ul li div.hacc3 {
-    background-image: url("../images/couples/11.jpg");
+    background-image: url("../images/kknots/gallery.svg");
 }
 
 .home-acces ul li div.hacc4 {

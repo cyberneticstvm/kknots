@@ -25,30 +25,30 @@
                                         <ul>
                                             <li>
                                                 <div class="menu-box menu-box-2">
-                                                    <h5>Browse profiles <span>1200+ Verified profiles</span></h5>
+                                                    <h5>Browse profiles </h5>
                                                     <span class="explor-cta">More details</span>
-                                                    <a href="all-profiles.html" class="fclick"></a>
+                                                    <a href="{{ route('browse.profile') }}" class="fclick"></a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="menu-box menu-box-1">
-                                                    <h5>Wedding page <span>Make reservation</span></h5>
+                                                    <h5>Wedding page </h5>
                                                     <span class="explor-cta">More details</span>
-                                                    <a href="wedding.html" class="fclick"></a>
+                                                    <a href="{{ route('wedding') }}" class="fclick"></a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="menu-box menu-box-3">
-                                                    <h5>All Services<span>Lorem ipsum dummy</span></h5>
+                                                    <h5>Photo Gallery</h5>
                                                     <span class="explor-cta">More details</span>
-                                                    <a href="services.html" class="fclick"></a>
+                                                    <a href="{{ route('gallery') }}" class="fclick"></a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="menu-box menu-box-4">
-                                                    <h5>Join Now <span>Lorem ipsum dummy</span></h5>
+                                                    <h5>Join Now </h5>
                                                     <span class="explor-cta">More details</span>
-                                                    <a href="plans.html" class="fclick"></a>
+                                                    <a href="{{ route('register') }}" class="fclick"></a>
                                                 </div>
                                             </li>
                                         </ul>

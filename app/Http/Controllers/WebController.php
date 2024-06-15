@@ -45,6 +45,24 @@ class WebController extends Controller
         return view('about');
     }
 
+    public function browseProfile()
+    {
+        $extras = Extra::all();
+        $religions = Religion::all();
+        $states = State::all();
+        return view('browse', compact('extras', 'religions', 'states'));
+    }
+
+    public function wedding()
+    {
+        return view('wedding');
+    }
+
+    public function gallery()
+    {
+        return view('gallery');
+    }
+
     public function contact()
     {
         return view('contact');

@@ -125,7 +125,7 @@
                                     <img src="{{ asset('/assets/images/icon/user.png') }}" alt="" loading="lazy">
                                     <h4>Browse Profiles</h4>
                                     <p>1200+ Profiles</p>
-                                    <a href="all-profiles.html">View more</a>
+                                    <a href="{{ route('browse.profile') }}">View more</a>
                                 </div>
                             </div>
                         </li>
@@ -135,7 +135,7 @@
                                     <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
                                     <h4>Wedding</h4>
                                     <p>1200+ Profiles</p>
-                                    <a href="wedding-video.html">View more</a>
+                                    <a href="{{ route('wedding') }}">View more</a>
                                 </div>
                             </div>
                         </li>
@@ -145,7 +145,7 @@
                                     <img src="{{ asset('/assets/images/icon/hall.png') }}" alt="" loading="lazy">
                                     <h4>Join Now</h4>
                                     <p>Start for free</p>
-                                    <a href="plans.html">Get started</a>
+                                    <a href="{{ route('register') }}">Get started</a>
                                 </div>
                             </div>
                         </li>
@@ -155,7 +155,7 @@
                                     <img src="{{ asset('/assets/images/icon/photo-camera.png') }}" alt="" loading="lazy">
                                     <h4>Photo gallery</h4>
                                     <p>1200+ Profiles</p>
-                                    <a href="photo-gallery.html">View more</a>
+                                    <a href="{{ route('gallery') }}">View more</a>
                                 </div>
                             </div>
                         </li>

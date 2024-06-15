@@ -27,6 +27,9 @@ Route::middleware(['web'])->group(function () {
         Route::get('/contact', 'contact')->name('contact');
         Route::get('/about', 'about')->name('about');
         Route::post('/search/profile', 'searchProfile')->name('search.profile');
+        Route::get('/wedding', 'wedding')->name('wedding');
+        Route::get('/gallery', 'gallery')->name('gallery');
+        Route::get('/browse/profile', 'browseProfile')->name('browse.profile');
     });
 
     Route::controller(AuthController::class)->group(function () {
