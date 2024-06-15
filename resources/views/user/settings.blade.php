@@ -11,7 +11,7 @@
                             <div class="col7 fol-set-rhs form-login">
                                 <!--START-->
                                 {{ html()->form('POST', route('user.profile.settings.update'))->class('')->open() }}
-                                <div class="ms-write-post fol-sett-sec sett-rhs-pro" style="">
+                                <div class="ms-write-post fol-sett-sec sett-rhs-pro">
                                     <div class="foll-set-tit fol-pro-abo-ico">
                                         <h4>Profile</h4>
                                     </div>
@@ -106,6 +106,17 @@
                                                 </div>
                                                 <div class="sett-rig">
                                                     {{ html()->password('password')->class('form-control')->placeholder('******') }}
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sett-lef">
+                                                    <div class="sett-rad-left">
+                                                        <h5>Close / Cancel Account</h5>
+                                                        <p>You can Cancel / Close your account here.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="sett-rig">
+                                                    <a href="{{ route('user.close.account', encrypt(Auth::id())) }}" class="dlt">Cancel Account</a>
                                                 </div>
                                             </li>
                                         </ul>

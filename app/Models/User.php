@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->belongsTo(Plan::class, 'plan', 'id');
     }
 
+    public function genders()
+    {
+        return $this->belongsTo(Extra::class, 'gender', 'id');
+    }
+
     public function settings()
     {
         return $this->hasOne(ProfileSetting::class, 'user_id', 'id');

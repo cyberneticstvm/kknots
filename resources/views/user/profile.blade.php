@@ -8,7 +8,7 @@
                 <div class="inn">
                     <div class="rhs">
                         <div class="form-login">
-                            {{ html()->form('POST', route('user.profile.update'))->class('')->acceptsFiles()->open() }}
+                            {{ html()->form('POST', route('user.profile.update', $profile->id))->class('')->acceptsFiles()->open() }}
                             <!--PROFILE BIO-->
                             <div class="edit-pro-parti">
                                 <div class="form-tit">
@@ -18,47 +18,47 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="lb">Name:</label>
-                                        {{ html()->text('name', Auth::user()->name)->class('form-control')->placeholder('Full Name') }}
+                                        {{ html()->text('name', $profile->user->name)->class('form-control')->placeholder('Full Name') }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb req">Gender:</label>
-                                        {{ html()->select('gender', $extras->where('category', 'gender')->pluck('name', 'id'), Auth::user()->gender)->class('chosen-select')->placeholder('Select') }}
+                                        {{ html()->select('gender', $extras->where('category', 'gender')->pluck('name', 'id'), $profile->user->gender)->class('chosen-select')->placeholder('Select') }}
                                         @error('gender')
                                         <small class="text-danger">{{ $errors->first('gender') }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb req">Religion:</label>
-                                        {{ html()->select('religion', $religions->pluck('name', 'id'), Auth::user()->religion)->attribute('data-type', 'caste')->attribute('data-child', 'caste')->class('chosen-select parent')->placeholder('Select') }}
+                                        {{ html()->select('religion', $religions->pluck('name', 'id'), $profile->user->religion)->attribute('data-type', 'caste')->attribute('data-child', 'caste')->class('chosen-select parent')->placeholder('Select') }}
                                         @error('religion')
                                         <small class="text-danger">{{ $errors->first('religion') }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb req">Caste:</label>
-                                        {{ html()->select('caste', $casts, Auth::user()->caste)->class('chosen-select caste')->placeholder('Select') }}
+                                        {{ html()->select('caste', $casts, $profile->user->caste)->class('chosen-select caste')->placeholder('Select') }}
                                         @error('caste')
                                         <small class="text-danger">{{ $errors->first('caste') }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb req">Date of Birth:</label>
-                                        {{ html()->date('dob', Auth::user()->dob->format('Y-m-d'))->class('form-control') }}
+                                        {{ html()->date('dob', $profile->user->dob->format('Y-m-d'))->class('form-control') }}
                                         @error('dob')
                                         <small class="text-danger">{{ $errors->first('dob') }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb">Email:</label>
-                                        {{ html()->email('email', Auth::user()->email)->class('form-control')->placeholder('Email') }}
+                                        {{ html()->email('email', $profile->user->email)->class('form-control')->placeholder('Email') }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb">Mobile Number:</label>
-                                        {{ html()->text('mobile', Auth::user()->mobile)->class('form-control')->placeholder('Mobile')->maxlength('10') }}
+                                        {{ html()->text('mobile', $profile->user->mobile)->class('form-control')->placeholder('Mobile')->maxlength('10') }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb">Referral Code:</label>
-                                        {{ html()->text('referral_code', Auth::user()->referral_code)->class('form-control')->placeholder('Referral Code')->if(Auth::user()->referral_code != '', function($el){
+                                        {{ html()->text('referral_code', $profile->user->referral_code)->class('form-control')->placeholder('Referral Code')->if($profile->user->referral_code != '', function($el){
                                             $el->attribute('disabled', 'true');
                                             }) 
                                         }}
@@ -461,7 +461,7 @@
                                         <div id="main_img" class="text-center">
                                             <img src="{{ ($profile?->profile_photo) ? asset($profile?->profile_photo) : '' }}" width="10%" />
                                             @if($profile?->profile_photo)
-                                            <p class="mt-1"><a href="{{ route('user.profile.photo.remove') }}" class="dlt">Remove Profile Photo</a></p>
+                                            <p class="mt-1"><a href="{{ route('user.profile.photo.remove', encrypt($profile->id)) }}" class="dlt">Remove Profile Photo</a></p>
                                             @endif
                                         </div>
                                         @error('profile_photo')
@@ -491,7 +491,7 @@
                                         <div class="text-center">
                                             @if($profile?->horoscope)
                                             <p class="mt-3"><a href="{{ asset($profile?->horoscope) }}"><i class="fa fa-file-o"></i></a></p>
-                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove') }}" class="dlt">Remove</a></p>
+                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove', encrypt($profile->id) }}" class="dlt">Remove</a></p>
                                             @endif
                                         </div>
                                         @error('horoscope')

@@ -18,6 +18,6 @@ class Staff
         if ($request->user()->role == 20)
             return $next($request);
         else
-            return redirect()->back()->withError('Info! This feature is permitted to admin members only');
+            return redirect()->back()->withError('Info! This feature is permitted to staff members only');
     }
 }

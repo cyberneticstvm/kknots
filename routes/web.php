@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\admin\ReportController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\Ajaxcontroller;
 use App\Http\Controllers\HelperController;
@@ -49,14 +51,15 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     Route::prefix('user/')->controller(ProfileController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('user.dashboard')->middleware('user');
-        Route::get('profile/edit', 'editProfile')->name('user.profile.edit')->middleware('user');
-        Route::post('profile/edit', 'updateProfile')->name('user.profile.update')->middleware('user');
-        Route::get('profile/photo/remove', 'removeProfilePhoto')->name('user.profile.photo.remove')->middleware('user');
+        Route::get('profile/edit/{id}', 'editProfile')->name('user.profile.edit');
+        Route::post('profile/edit/{id}', 'updateProfile')->name('user.profile.update');
+        Route::get('profile/photo/remove/{uid}', 'removeProfilePhoto')->name('user.profile.photo.remove')->middleware('user');
         Route::get('other/photo/remove/{id}', 'removeOtherPhoto')->name('user.other.photo.remove')->middleware('user');
-        Route::get('profile/horoscope/remove', 'removeHoroscope')->name('user.horoscope.remove')->middleware('user');
+        Route::get('profile/horoscope/remove{uid}', 'removeHoroscope')->name('user.horoscope.remove')->middleware('user');
 
         Route::get('profile/setting', 'settings')->name('user.profile.settings')->middleware('user');
         Route::post('profile/setting', 'settingsUpdate')->name('user.profile.settings.update')->middleware('user');
+        Route::get('close/account/{id}', 'closeAccount')->name('user.close.account');
     });
 
     Route::prefix('user/')->controller(HelperController::class)->group(function () {
@@ -75,5 +78,28 @@ Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
         Route::get('staff/edit/{id}', 'edit')->name('admin.staff.edit')->middleware('admin');
         Route::put('staff/edit/{id}', 'update')->name('admin.staff.update')->middleware('admin');
         Route::get('staff/delete/{id}', 'destroy')->name('admin.staff.delete')->middleware('admin');
+    });
+    Route::controller(AdminProfileController::class)->group(function () {
+        Route::get('profiles', 'index')->name('admin.manage.profile')->middleware('admin');
+
+        Route::get('plans', 'plans')->name('admin.manage.plans')->middleware('admin');
+        Route::get('plan/create', 'createPlan')->name('admin.plan.create')->middleware('admin');
+        Route::get('plan/edit/{id}', 'editPlan')->name('admin.plan.edit')->middleware('admin');
+        Route::put('plan/edit/{id}', 'updatePlan')->name('admin.plan.update')->middleware('admin');
+        Route::get('plan/delete/{id}', 'deletePlan')->name('admin.plan.delete')->middleware('admin');
+
+        Route::get('payments', 'payments')->name('admin.manage.payment')->middleware('admin');
+        Route::get('payment/create/{id}', 'createPayment')->name('admin.payment.create')->middleware('admin');
+        Route::post('payment/create/{id}', 'savePayment')->name('admin.payment.save')->middleware('admin');
+        Route::get('payment/edit/{id}', 'editPayment')->name('admin.payment.edit')->middleware('admin');
+        Route::put('payment/edit/{id}', 'updatePayment')->name('admin.payment.update')->middleware('admin');
+        Route::get('payment/delete/{id}', 'deletePayment')->name('admin.payment.delete')->middleware('admin');
+    });
+
+    Route::prefix('/report')->controller(ReportController::class)->group(function () {
+        Route::get('/registration', 'registration')->name('admin.report.registration')->middleware('admin');
+        Route::post('/registration', 'registrationFetch')->name('admin.report.registration.fetch')->middleware('admin');
+        Route::get('/payment', 'payment')->name('admin.report.payment')->middleware('admin');
+        Route::post('/payment', 'paymentFetch')->name('admin.report.payment.fetch')->middleware('admin');
     });
 });

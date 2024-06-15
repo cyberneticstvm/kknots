@@ -19,11 +19,16 @@
             <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
             <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
-            <li><a href="{{ route('user.profile.edit') }}">Edit full profile</a></li>
+            <li><a href="{{ route('user.profile.edit', encrypt(Auth::user()->id)) }}">Edit full profile</a></li>
             <li><a href="{{ route('logout') }}">Logout</a></li>
             @else
             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('admin.manage.staff') }}">Manage Staff / Users</a></li>
+            <li><a href="{{ route('admin.manage.profile') }}">Manage Profile</a></li>
+            <li><a href="{{ route('admin.manage.plans') }}">Manage Plans</a></li>
+            <li><a href="{{ route('admin.manage.payment') }}">Manage Payment</a></li>
+            <li><a href="{{ route('admin.report.payment') }}">Report Payment</a></li>
+            <li><a href="{{ route('admin.report.registration') }}">Report Registration</a></li>
             @endif
             @else
             <li><a href="{{ route('register') }}">Register</a></li>
@@ -77,11 +82,16 @@
             <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
             <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
-            <li><a href="{{ route('user.profile.edit') }}">Edit full profile</a></li>
+            <li><a href="{{ route('user.profile.edit', encrypt(Auth::user()->id)) }}">Edit full profile</a></li>
             <li><a href="{{ route('logout') }}">Logout</a></li>
             @else
             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('admin.manage.staff') }}">Manage Staff / Users</a></li>
+            <li><a href="{{ route('admin.manage.profile') }}">Manage Profile</a></li>
+            <li><a href="{{ route('admin.manage.plans') }}">Manage Plans</a></li>
+            <li><a href="{{ route('admin.manage.payment') }}">Manage Payment</a></li>
+            <li><a href="{{ route('admin.report.payment') }}">Report Payment</a></li>
+            <li><a href="{{ route('admin.report.registration') }}">Report Registration</a></li>
             @endif
             @else
             <li><a href="{{ route('register') }}">Register</a></li>

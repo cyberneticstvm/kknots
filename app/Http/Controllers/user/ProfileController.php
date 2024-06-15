@@ -28,12 +28,12 @@ class ProfileController extends Controller
         return view('user.dashboard');
     }
 
-    public function editProfile()
+    public function editProfile(string $id)
     {
         $extras = Extra::orderBy('name')->get();
         $districts = District::orderBy('name')->pluck('name', 'id');
         $states = State::orderBy('name')->get();
-        $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
+        $profile = ProfileSetting::where('user_id', decrypt($id))->firstOrFail();
         $occupations = Occupation::orderBy('name')->pluck('name', 'id');
         $incomes = Income::orderBy('name')->pluck('name', 'id');
         $qualifications = Qualification::orderBy('name')->pluck('name', 'id');
@@ -42,13 +42,13 @@ class ProfileController extends Controller
         return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts', 'religions'));
     }
 
-    public function updateProfile(Request $request)
+    public function updateProfile(Request $request, string $id)
     {
         $this->validate($request, [
             'profile_photo' => 'nullable|mimes:jpg,jpeg,png,webp|max:512',
             'horoscope' => 'nullable|mimes:pdf,doc,docx|max:512',
         ]);
-        $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
+        $profile = ProfileSetting::findOrFail($id);
         try {
             $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend'));
             $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'caste', 'religion'));
@@ -246,9 +246,9 @@ class ProfileController extends Controller
         return redirect()->back()->with("success", "Profile updated successfully.");
     }
 
-    function removeProfilePhoto()
+    function removeProfilePhoto(string $id)
     {
-        $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
+        $profile = ProfileSetting::findOrFail(decrypt($id));
         $profile->update(['profile_photo' => NULL]);
         return redirect()->back()->with("success", "Profile photo removed successfully.");
     }
@@ -259,9 +259,9 @@ class ProfileController extends Controller
         return redirect()->back()->with("success", "User photo removed successfully.");
     }
 
-    public function removeHoroscope()
+    public function removeHoroscope(string $id)
     {
-        $profile = ProfileSetting::where('user_id', Auth::id())->firstOrFail();
+        $profile = ProfileSetting::findOrFail(decrypt($id));
         $profile->update(['horoscope' => NULL]);
         return redirect()->back()->with("success", "Horoscope removed successfully.");
     }
@@ -287,5 +287,11 @@ class ProfileController extends Controller
             ]);
         endif;
         return redirect()->back()->with("success", "Profile settings updated successfully.");
+    }
+
+    public function closeAccount(string $id)
+    {
+        User::findOrFail(decrypt($id))->delete();
+        return redirect()->back()->with("success", "Profile closed successfully.");
     }
 }
