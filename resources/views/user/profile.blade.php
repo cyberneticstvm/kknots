@@ -491,7 +491,7 @@
                                         <div class="text-center">
                                             @if($profile?->horoscope)
                                             <p class="mt-3"><a href="{{ asset($profile?->horoscope) }}"><i class="fa fa-file-o"></i></a></p>
-                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove', encrypt($profile->id) }}" class="dlt">Remove</a></p>
+                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove', encrypt($profile->id)) }}" class="dlt">Remove</a></p>
                                             @endif
                                         </div>
                                         @error('horoscope')
