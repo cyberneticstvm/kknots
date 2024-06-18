@@ -21,7 +21,7 @@
                                                 <div class="sett-lef">
                                                     <div class="auth-pro-sm sett-pro-wid">
                                                         <div class="auth-pro-sm-img">
-                                                            <img src="{{ asset($settings->profile_photo) }}" alt="">
+                                                            <img src="{{ $settings->profile_photo ? asset($settings->profile_photo) : asset('/assets/images/profiles/1.svg') }}" alt="">
                                                         </div>
                                                         <div class="auth-pro-sm-desc">
                                                             <h5>{{ Auth::user()->name }}</h5>
