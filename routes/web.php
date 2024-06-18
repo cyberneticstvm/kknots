@@ -39,6 +39,7 @@ Route::middleware(['web'])->group(function () {
         Route::post('/register', 'register')->name('user.register');
 
         Route::get('/forgot/password', 'forgotPassword')->name('forgot.password');
+        Route::post('/forgot/password', 'sendPwdResetEmail')->name('send.pwd.reset.email');
     });
 });
 

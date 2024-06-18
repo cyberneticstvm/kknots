@@ -46,7 +46,7 @@
                                 </div>
                                 {{ html()->submit('Sign In')->class('btn btn-primary btn-submit') }}
                                 {{ html()->form()->close() }}
-                                <div class="form-tit">
+                                <div class="form-tit mt-3">
                                     <p><a href="{{ route('forgot.password') }}">Forgot Password?</a></p>
                                 </div>
                             </div>

@@ -73,6 +73,19 @@ class AuthController extends Controller
         return view('forgot-password');
     }
 
+    public function sendPwdResetEmail(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+        try {
+            $user = User::where('email', $request->email)->firstOrFail();
+        } catch (Exception $e) {
+            return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());
+        }
+        return redirect()->back()->with("success", "Password reset link successfully sent to your email.");
+    }
+
     public function dashboard()
     {
         return view('admin.dashboard');

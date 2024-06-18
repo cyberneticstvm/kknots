@@ -19,17 +19,17 @@
                     <div class="rhs">
                         <div>
                             <div class="form-login">
-                                {{ html()->form('POST', route('user.authenticate'))->class('')->open() }}
+                                {{ html()->form('POST', route('send.pwd.reset.email'))->class('')->open() }}
                                 <div class="form-group">
-                                    <label class="lb req">Mobile Number:</label>
-                                    {{ html()->text('mobile', old('mobile'))->class('form-control')->maxlength(10)->placeholder('Mobile Number') }}
-                                    @error('mobile')
-                                    <small class="text-danger">{{ $errors->first('mobile') }}</small>
+                                    <label class="lb req">Email Id:</label>
+                                    {{ html()->email('email', old('email'))->class('form-control')->placeholder('Registered Email Id') }}
+                                    @error('email')
+                                    <small class="text-danger">{{ $errors->first('email') }}</small>
                                     @enderror
                                 </div>
                                 {{ html()->submit('Request Password Reset Link')->class('btn btn-primary btn-submit') }}
                                 {{ html()->form()->close() }}
-                                <div class="form-tit">
+                                <div class="form-tit mt-3">
                                     <p><a href="{{ route('login') }}">Login</a></p>
                                 </div>
                             </div>
