@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ForgotPassword;
 use App\Models\ProfileSetting;
 use App\Models\User;
 use Exception;
@@ -10,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -80,10 +82,31 @@ class AuthController extends Controller
         ]);
         try {
             $user = User::where('email', $request->email)->firstOrFail();
+            Mail::to($user->email)->send(new ForgotPassword($user));
         } catch (Exception $e) {
             return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());
         }
         return redirect()->back()->with("success", "Password reset link successfully sent to your email.");
+    }
+
+    public function resetPassword($token)
+    {
+        $user = User::findOrFail(decrypt($token));
+        return view('reset-password', compact('user'));
+    }
+
+    public function resetPasswordUpdate(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required',
+        ]);
+        try {
+            User::where('id', decrypt($request->user_id))->update(['password' => bcrypt($request->password)]);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage())->withInput($request->all());
+        }
+        return redirect()->route('login')->with("success", "Password has been reset successfully");
     }
 
     public function dashboard()

@@ -19,15 +19,23 @@
                     <div class="rhs">
                         <div>
                             <div class="form-tit">
-                                <h1>Request Password Reset Link</h1>
+                                <h1>Reset Password</h1>
                             </div>
                             <div class="form-login">
-                                {{ html()->form('POST', route('send.pwd.reset.email'))->class('')->open() }}
+                                {{ html()->form('POST', route('reset.password.update'))->class('')->open() }}
+                                <input type="hidden" name="user_id" value="{{ encrypt($user->id) }}" />
                                 <div class="form-group">
-                                    <label class="lb req">Email Id:</label>
-                                    {{ html()->email('email', old('email'))->class('form-control')->placeholder('Registered Email Id') }}
-                                    @error('email')
-                                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                                    <label class="lb req">Password:</label>
+                                    {{ html()->password('password', '')->class('form-control')->placeholder('******') }}
+                                    @error('password')
+                                    <small class="text-danger">{{ $errors->first('password') }}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="lb req">Confirm Password:</label>
+                                    {{ html()->password('password_confirmation', '')->class('form-control')->placeholder('******') }}
+                                    @error('password_confirmation')
+                                    <small class="text-danger">{{ $errors->first('password_confirmation') }}</small>
                                     @enderror
                                 </div>
                                 {{ html()->submit('Request Password Reset Link')->class('btn btn-primary btn-submit') }}

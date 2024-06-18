@@ -40,6 +40,8 @@ Route::middleware(['web'])->group(function () {
 
         Route::get('/forgot/password', 'forgotPassword')->name('forgot.password');
         Route::post('/forgot/password', 'sendPwdResetEmail')->name('send.pwd.reset.email');
+        Route::get('/reset/password/{token}', 'resetPassword')->name('reset.password');
+        Route::post('/reset/password', 'resetPasswordUpdate')->name('reset.password.update');
     });
 });
 
