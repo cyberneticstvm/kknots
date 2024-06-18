@@ -37,6 +37,8 @@ Route::middleware(['web'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::post('/login', 'authenticate')->name('user.authenticate');
         Route::post('/register', 'register')->name('user.register');
+
+        Route::get('/forgot/password', 'forgotPassword')->name('forgot.password');
     });
 });
 

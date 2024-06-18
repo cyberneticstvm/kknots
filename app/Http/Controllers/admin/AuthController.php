@@ -68,6 +68,11 @@ class AuthController extends Controller
         return redirect()->back()->with("success", "User registered successfully.");
     }
 
+    public function forgotPassword()
+    {
+        return view('forgot-password');
+    }
+
     public function dashboard()
     {
         return view('admin.dashboard');
