@@ -38,7 +38,7 @@
                                     <small class="text-danger">{{ $errors->first('password_confirmation') }}</small>
                                     @enderror
                                 </div>
-                                {{ html()->submit('Request Password Reset Link')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update Password')->class('btn btn-primary btn-submit') }}
                                 {{ html()->form()->close() }}
                                 <div class="form-tit mt-3">
                                     <p><a href="{{ route('login') }}">Login</a></p>
