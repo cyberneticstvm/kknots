@@ -55,7 +55,7 @@ Route::middleware(['web', 'auth'])->group(function () {
         Route::post('profile/edit/{id}', 'updateProfile')->name('user.profile.update');
         Route::get('profile/photo/remove/{uid}', 'removeProfilePhoto')->name('user.profile.photo.remove')->middleware('user');
         Route::get('other/photo/remove/{id}', 'removeOtherPhoto')->name('user.other.photo.remove')->middleware('user');
-        Route::get('profile/horoscope/remove{uid}', 'removeHoroscope')->name('user.horoscope.remove')->middleware('user');
+        Route::get('profile/horoscope/remove/{uid}', 'removeHoroscope')->name('user.horoscope.remove')->middleware('user');
 
         Route::get('profile/setting', 'settings')->name('user.profile.settings')->middleware('user');
         Route::post('profile/setting', 'settingsUpdate')->name('user.profile.settings.update')->middleware('user');
