@@ -7,6 +7,7 @@ use App\Models\Religion;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebController extends Controller
 {
@@ -20,14 +21,30 @@ class WebController extends Controller
 
     public function login()
     {
-        return view('login');
+        if (Auth::id()) :
+            if (Auth::user()->role == 21) :
+                return redirect()->route('user.dashboard');
+            else :
+                return redirect()->route('admin.dashboard');
+            endif;
+        else :
+            return view('login');
+        endif;
     }
 
     public function register()
     {
-        $gender = Extra::where('category', 'gender')->pluck('name', 'id');
-        $hows = Extra::where('category', 'how_to_know')->pluck('name', 'id');
-        return view('register', compact('gender', 'hows'));
+        if (Auth::id()) :
+            if (Auth::user()->role == 21) :
+                return redirect()->route('user.dashboard');
+            else :
+                return redirect()->route('admin.dashboard');
+            endif;
+        else :
+            $gender = Extra::where('category', 'gender')->pluck('name', 'id');
+            $hows = Extra::where('category', 'how_to_know')->pluck('name', 'id');
+            return view('register', compact('gender', 'hows'));
+        endif;
     }
 
     public function searchProfile(Request $request)
