@@ -25,12 +25,17 @@ class ProfileController extends Controller
 {
     public function dashboard()
     {
-        return view('user.dashboard');
+        $user = User::findOrFail(Auth::id());
+        $extras = Extra::all();
+        $religions = Religion::all();
+        $states = State::all();
+        return view('user.dashboard', compact('user', 'extras', 'religions', 'states'));
     }
 
     public function myProfile()
     {
-        return view('user.my-profile');
+        $user = User::findOrFail(Auth::id());
+        return view('user.my-profile', compact('user'));
     }
 
     public function editProfile(string $id)

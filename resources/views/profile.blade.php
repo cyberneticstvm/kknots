@@ -151,7 +151,7 @@
                             <div class="inn">
                                 <h3>Tell us your Needs</h3>
                                 <p>Tell us what kind of service or experts you are looking.</p>
-                                <a href="sign-up.html">Register for free</a>
+                                <a href="{{ route('register') }}">Register for free</a>
                             </div>
                         </div>
                         <!-- END HELP BOX -->

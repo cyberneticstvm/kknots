@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ForgotPassword;
+use App\Models\Payment;
 use App\Models\ProfileSetting;
 use App\Models\User;
 use Exception;
@@ -116,6 +117,10 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $profiles = User::where('role', 21)->get();
+        $collection = Payment::all();
+        $current_month_collection = Payment::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount');
+        $current_month_profiles = User::where('role', 21)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
+        return view('admin.dashboard', compact('profiles', 'collection', 'current_month_collection', 'current_month_profiles'));
     }
 }
