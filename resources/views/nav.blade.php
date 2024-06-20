@@ -64,7 +64,7 @@
                             <div class="smenu-open smenu-single">
                                 <ul>
                                     <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
-                                    <li><a href="{{ route('user.dashboard') }}">My profile</a></li>
+                                    <li><a href="{{ route('user.my.profile') }}">My profile</a></li>
                                     <li><a href="{{ route('user.profile.settings') }}">Profile settings</a></li>
                                     <li><a href="{{ route('user.profile.edit', encrypt(Auth::user()->id)) }}">Edit full profile</a></li>
                                     <li><a href="{{ route('logout') }}">Logout</a></li>
@@ -83,6 +83,7 @@
                                     <li><a href="{{ route('admin.manage.payment') }}">Manage Payment</a></li>
                                     <li><a href="{{ route('admin.report.payment') }}">Report Payment</a></li>
                                     <li><a href="{{ route('admin.report.registration') }}">Report Registration</a></li>
+                                    <li><a href="{{ route('logout') }}">Logout</a></li>
                                 </ul>
                             </div>
                         </li>

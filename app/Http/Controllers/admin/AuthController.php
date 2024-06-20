@@ -24,8 +24,13 @@ class AuthController extends Controller
         try {
             $credentials = $request->only('mobile', 'password');
             if (Auth::attempt($credentials, $request->remember)) {
-                return redirect()->route('user.dashboard',)
-                    ->withSuccess('User logged in successfully');
+                if (Auth::user()->role == 21) :
+                    return redirect()->route('user.dashboard',)
+                        ->withSuccess('User logged in successfully');
+                else :
+                    return redirect()->route('admin.dashboard',)
+                        ->withSuccess('User logged in successfully');
+                endif;
             }
             return redirect()->back()->with("error", "Invalid Credentials")->withInput($request->all());
         } catch (Exception $e) {

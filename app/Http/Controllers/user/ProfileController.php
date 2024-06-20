@@ -28,6 +28,11 @@ class ProfileController extends Controller
         return view('user.dashboard');
     }
 
+    public function myProfile()
+    {
+        return view('user.my-profile');
+    }
+
     public function editProfile(string $id)
     {
         $extras = Extra::orderBy('name')->get();

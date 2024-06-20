@@ -56,6 +56,7 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     Route::prefix('user/')->controller(ProfileController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('user.dashboard')->middleware('user');
+        Route::get('myprofile', 'myProfile')->name('user.my.profile')->middleware('user');
         Route::get('profile/edit/{id}', 'editProfile')->name('user.profile.edit');
         Route::post('profile/edit/{id}', 'updateProfile')->name('user.profile.update');
         Route::get('profile/photo/remove/{uid}', 'removeProfilePhoto')->name('user.profile.photo.remove')->middleware('user');
