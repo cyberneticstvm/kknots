@@ -8,8 +8,10 @@
                 <div class="row">
                     <div class="hom-ban">
                         <div class="ban-tit">
-                            <span><i class="no1">#1</i> Matrimony</span>
-                            <h1>Find your<br><b>Right Match</b> here</h1>
+                            <div class="mb-3">
+                                {{ html()->a(route('register'), 'REGISTER NOW!')->class('btn btn-info fw-bold') }}
+                            </div>
+                            <h1>Find your<br><b>Right Match</b> in <b class="text-warning">Kerala Knots</b></h1>
                             <p>Most trusted Matrimony Brand in Kerala.</p>
                         </div>
                         <div class="ban-search chosenini">
@@ -71,6 +73,9 @@
                             </form>
                         </div>
                     </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8 text-center text-warning mt-3">തലമുറകളിലൂടെ കൈമാറി വന്ന വൈവാഹിക പാരമ്പര്യത്തിന്റെ തനിമ ഒട്ടും കൈവിടാതെ അതി നൂതന സാങ്കേതിക വിദ്യയിലൂടെ ജീവിത പങ്കാളിയെ കണ്ടെത്താൻ Kerala Knots നിങ്ങളെ സഹായിക്കുന്നു !</div>
                 </div>
             </div>
         </div>

@@ -23,6 +23,7 @@
                                 <p>Already a member? <a href="{{ route('login') }}">Login</a></p>
                             </div>
                             <div class="form-login">
+                                @include('flash-message')
                                 {{ html()->form('POST', route('user.register'))->class('')->open() }}
                                 <div class="form-group">
                                     <label class="lb req">Full Name:</label>

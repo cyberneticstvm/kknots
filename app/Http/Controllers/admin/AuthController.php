@@ -24,7 +24,7 @@ class AuthController extends Controller
         try {
             $credentials = $request->only('mobile', 'password');
             if (Auth::attempt($credentials, $request->remember)) {
-                return redirect()->route('index')
+                return redirect()->route('user.dashboard',)
                     ->withSuccess('User logged in successfully');
             }
             return redirect()->back()->with("error", "Invalid Credentials")->withInput($request->all());
@@ -67,7 +67,7 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());
         }
-        return redirect()->back()->with("success", "User registered successfully.");
+        return redirect()->route('login')->with("success", "User registered successfully.");
     }
 
     public function forgotPassword()

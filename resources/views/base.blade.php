@@ -53,8 +53,8 @@
     <section class="wed-hom-footer">
         <div class="container">
             <div class="row foot-supp">
-                <h2><span>For support:</span> <a href="tel:+919778292355">+91 9778292355</a> &nbsp;&nbsp;|&nbsp;&nbsp; <span>Email:</span>
-                    <a href="mailto:help@keralaknots.com">help@keralaknots.com</a>
+                <h2><span>For support:</span> <a href="tel:+919778292355" class="text-white">+91 9778292355</a> &nbsp;&nbsp;|&nbsp;&nbsp; <span>Email:</span>
+                    <a href="mailto:help@keralaknots.com" class="text-white">help@keralaknots.com</a>
                 </h2>
             </div>
             <div class="row wed-foot-link wed-foot-link-1">

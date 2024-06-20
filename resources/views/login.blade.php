@@ -24,6 +24,7 @@
                                 <p>Not a member? <a href="{{ route('register') }}">Sign up now</a></p>
                             </div>
                             <div class="form-login">
+                                @include('flash-message')
                                 {{ html()->form('POST', route('user.authenticate'))->class('')->open() }}
                                 <div class="form-group">
                                     <label class="lb req">Mobile Number:</label>

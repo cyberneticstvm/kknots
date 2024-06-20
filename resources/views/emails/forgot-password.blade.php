@@ -7,9 +7,9 @@
 
 <body>
     Dear {{ $user->name }},
-    <p>Your password reset link shown below.</p><br />
+    <p>Your password reset link shown below.</p>
     <a href="{{ route('reset.password', encrypt($user->id)) }}" target="_blank">Click here to reset your password</a>
-    <br />
+    <br /><br />
     Regards,<br />
     Team Kerala Knots.
 </body>

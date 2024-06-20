@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('height_unit', 5)->nullable();
             $table->decimal('weight', 5, 2)->nullable();
             $table->text('address')->nullable();
+            $table->text('is_challenged')->nullable();
             $table->string('father_name', 100)->nullable();
             $table->string('mother_name', 100)->nullable();
             $table->string('father_occupation', 150)->nullable();
@@ -36,6 +37,7 @@ return new class extends Migration
             $table->unsignedBigInteger('occupation')->nullable();
             $table->string('company_name', 150)->nullable();
             $table->unsignedBigInteger('work_place')->nullable();
+            $table->string('work_place_other', 150)->nullable();
             $table->unsignedBigInteger('qualification')->nullable();
             $table->unsignedBigInteger('salary')->nullable();
             $table->decimal('total_experience')->nullable();

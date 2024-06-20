@@ -67,6 +67,10 @@
                                         <label class="lb">Candidate and Family Bio:</label>
                                         {{ html()->textarea('bio', $profile?->bio)->class('form-control')->placeholder('Candidate and Family Bio') }}
                                     </div>
+                                    <div class="form-group">
+                                        <label class="lb">Physically or Mentally Challenged if any:</label>
+                                        {{ html()->textarea('is_challenged', $profile?->is_challenged)->class('form-control')->placeholder('Physically or Mentally Challenged if any') }}
+                                    </div>
                                 </div>
                             </div>
                             <!--END PROFILE BIO-->
@@ -188,12 +192,16 @@
                                         {{ html()->text('company_name', $profile?->company_name)->class('form-control')->placeholder('Company Name') }}
                                     </div>
                                     <div class="col-md-6 form-group">
+                                        <label class="lb">Salary:</label>
+                                        {{ html()->select('salary', $incomes, $profile?->salary)->class('form-select chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    <div class="col-md-6 form-group">
                                         <label class="lb">Working Place:</label>
                                         {{ html()->select('work_place', $districts, $profile?->work_place)->class('form-select chosen-select')->placeholder('Select') }}
                                     </div>
-                                    <div class="col-md-6 form-group">
-                                        <label class="lb">Salary:</label>
-                                        {{ html()->select('salary', $incomes, $profile?->salary)->class('form-select chosen-select')->placeholder('Select') }}
+                                    <div class="col-md-12 form-group">
+                                        <label class="lb">Specify Work Place if Other:</label>
+                                        {{ html()->text('work_place_other', $profile?->work_place_other)->class('form-control')->placeholder('Specify Work Place if Other') }}
                                     </div>
                                 </div>
                                 <div class="row">
