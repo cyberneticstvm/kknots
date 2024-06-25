@@ -57,6 +57,10 @@
                                         {{ html()->text('mobile', $profile->user->mobile)->class('form-control')->placeholder('Mobile')->maxlength('10') }}
                                     </div>
                                     <div class="form-group col-md-6">
+                                        <label class="lb">WhatsApp Number:</label>
+                                        {{ html()->text('whatsapp_number', $profile->user->whatsapp_number)->class('form-control')->placeholder('WhatsApp Number')->maxlength('10') }}
+                                    </div>
+                                    <div class="form-group col-md-12">
                                         <label class="lb">Referral Code:</label>
                                         {{ html()->text('referral_code', $profile->user->referral_code)->class('form-control')->placeholder('Referral Code')->if($profile->user->referral_code != '', function($el){
                                             $el->attribute('disabled', 'true');
@@ -506,6 +510,12 @@
                                         <small class="text-danger">{{ $errors->first('horoscope') }}</small>
                                         @enderror
                                     </div>
+                                    @if(Auth::user()->role == 19)
+                                    <div class="form-group col-md-12">
+                                        <label class="lb">Verification:</label>
+                                        {{ html()->select('verified', array('1' => 'verified', '0' => 'Not Verified'), $profile->user->verified)->class('chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                             <!--END PROFILE BIO-->

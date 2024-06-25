@@ -60,8 +60,8 @@ class ProfileController extends Controller
         ]);
         $profile = ProfileSetting::findOrFail($id);
         try {
-            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend'));
-            $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'referral_code', 'caste', 'religion'));
+            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'whatsapp_number', 'verified', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend'));
+            $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'whatsapp_number', 'referral_code', 'caste', 'religion', 'verified'));
             if ($request->file('profile_photo')) :
                 $main_img = uploadFile($request->file('profile_photo'), $path = 'profile/' . $profile->user_id . '/photos');
                 $input['profile_photo'] = $main_img;
@@ -289,6 +289,7 @@ class ProfileController extends Controller
             'show_address' => $request->address,
             'show_email' => $request->email,
             'show_contact_number' => $request->mobile,
+            'intro_video_url' => $request->intro_video_url,
             'updated_at' => Carbon::now(),
         ]);
         if ($request->password) :

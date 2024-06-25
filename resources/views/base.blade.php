@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <link href="{{ asset('/assets/css/mystickyelement.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/css/kknots.css') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,6 +41,22 @@
     </div>
     <div class="pop-bg"></div>
     <!-- END PRELOADER -->
+    <!-- Whatsapp -->
+    <div class="mystickyelements-fixed mystickyelements-position-right mystickyelements-position-screen-center mystickyelements-position-mobile-right mystickyelements-on-hover mystickyelements-size-medium mystickyelements-mobile-size-medium mystickyelements-templates-default">
+        <div class="mystickyelement-lists-wrap">
+            <ul class="mystickyelements-lists mystickyno-minimize">
+                <li id="mystickyelements-social-whatsapp" class="mystickyelements-social-icon-li mystickyelements-social-whatsapp  element-desktop-on element-mobile-on">
+                    <span class="mystickyelements-social-icon social-whatsapp social-custom" style="background: #0C9">
+                        <a href="https://api.whatsapp.com/send?phone=919778292355&text=Hello!%20I%20am%20interested%20in%20your%20service" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i></a>
+                    </span>
+                    <span class="mystickyelements-social-text " style="background: #0C9;">
+                        <a href="https://api.whatsapp.com/send?phone=919778292355&text=Hello!%20I%20am%20interested%20in%20your%20service" target="_blank" rel="noopener">WhatsApp</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Whatsapp -->
 
     @include("top-head")
 
@@ -101,6 +118,7 @@
                 <div class="row">
                     <p>Copyright © <span id="">{{ date('Y') }}</span> <a href="{{ route('index') }}" target="_blank">keralaknots.com.</a> All
                         rights reserved.</p>
+                    <a href="{{ route('register') }}" class="float" data-toggle="tooltip" title="Register Now!"><i class="fa fa-user my-float text-white"></i></a>
                 </div>
             </div>
         </div>
@@ -116,6 +134,7 @@
     <script src="{{ asset('/assets/js/select-opt.js') }}"></script>
     <script src="{{ asset('/assets/js/slick.js') }}"></script>
     <script src="{{ asset('/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('/assets/js/mystickyelement.js') }}"></script>
     <script src="{{ asset('/assets/js/script.js') }}"></script>
     <script>
         $(function() {

@@ -24,3 +24,25 @@
 .hom-top.act .smenu-multi {
     top: 75px !important;
 }
+
+.text-red{
+    color: #c10502 !important;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#c10502;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #c10502;
+    z-index: 9;
+}
+
+.my-float{
+	margin-top:22px;
+}

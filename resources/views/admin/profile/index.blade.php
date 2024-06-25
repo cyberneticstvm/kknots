@@ -20,6 +20,7 @@
                                     <th>Reg. Date</th>
                                     <th>Plan</th>
                                     <th>Payment</th>
+                                    <th>Verified</th>
                                     <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -36,6 +37,7 @@
                                     <td>{{ $profile->created_at->format('d.M.Y') }}</td>
                                     <td>{{ $profile->plans->name }}</td>
                                     <td><a href="{{ route('admin.payment.create', encrypt($profile->id)) }}">Pay Now</a></a></td>
+                                    <td class="text-center">{!! $profile->verified() !!}</td>
                                     <td>{!! $profile->status() !!}</td>
                                     <td class="text-center"><a href="{{ route('user.profile.edit', encrypt($profile->id)) }}"><i class="fa fa-pencil text-warning"></i></a></td>
                                     <td class="text-center"><a href="{{ route('user.close.account', encrypt($profile->id)) }}" class="dlt"><i class="fa fa-trash text-danger"></i></a></td>

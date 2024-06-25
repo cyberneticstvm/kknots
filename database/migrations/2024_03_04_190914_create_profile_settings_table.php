@@ -59,6 +59,7 @@ return new class extends Migration
             $table->boolean('show_contact_number')->default('1');
             $table->boolean('show_address')->default('1');
             $table->boolean('show_email')->default('1');
+            $table->string('intro_video_url')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -9,9 +9,9 @@
                     <div class="hom-ban">
                         <div class="ban-tit">
                             <div class="mb-3">
-                                {{ html()->a(route('register'), 'REGISTER NOW!')->class('btn btn-info fw-bold') }}
+                                {{ html()->a(route('register'), 'REGISTER NOW!')->class('btn btn-link text-white fw-bold') }}
                             </div>
-                            <h1>Find your<br><b>Right Match</b> in <b class="text-warning">Kerala Knots</b></h1>
+                            <h1>Find your<br>Right Match in <b class="text-red">Kerala Knots</b></h1>
                             <p>Most trusted Matrimony Brand in Kerala.</p>
                         </div>
                         <div class="ban-search chosenini">
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-8 text-center text-warning mt-3">തലമുറകളിലൂടെ കൈമാറി വന്ന വൈവാഹിക പാരമ്പര്യത്തിന്റെ തനിമ ഒട്ടും കൈവിടാതെ അതി നൂതന സാങ്കേതിക വിദ്യയിലൂടെ ജീവിത പങ്കാളിയെ കണ്ടെത്താൻ Kerala Knots നിങ്ങളെ സഹായിക്കുന്നു !</div>
+                    <div class="col-8 text-center text-white mt-3">തലമുറകളിലൂടെ കൈമാറി വന്ന വൈവാഹിക പാരമ്പര്യത്തിന്റെ തനിമ ഒട്ടും കൈവിടാതെ അതി നൂതന സാങ്കേതിക വിദ്യയിലൂടെ ജീവിത പങ്കാളിയെ കണ്ടെത്താൻ Kerala Knots നിങ്ങളെ സഹായിക്കുന്നു !</div>
                 </div>
             </div>
         </div>
@@ -125,6 +125,85 @@
                 <div class="home-acces">
                     <ul class="hom-qui-acc-sli">
                         <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <p>Special consideration to physically disable persons and widows</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Ornaments and costume rental </h4>
+                                    <p>10+ Rentals</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Marriage hall booking</h4>
+                                    <p>100+ Marriage hall bookings</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Honeymoon trips</h4>
+                                    <p>50+ Honeymoon trips</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Catering services</h4>
+                                    <p>20+ Catering services</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Photo-video shoot</h4>
+                                    <p>20+ Photo-video shoot</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Free Counselling</h4>
+                                    <p>100+ Counselling</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wow fadeInUp hacc hacc2" data-wow-delay="0.1s">
+                                <div class="con">
+                                    <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
+                                    <h4>Matching with AI</h4>
+                                    <p>1200+ Profiles</p>
+                                    <a href="#">View more</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
                             <div class="wow fadeInUp hacc hacc1" data-wow-delay="0.1s">
                                 <div class="con">
                                     <img src="{{ asset('/assets/images/icon/user.png') }}" alt="" loading="lazy">
@@ -139,7 +218,7 @@
                                 <div class="con">
                                     <img src="{{ asset('/assets/images/icon/gate.png') }}" alt="" loading="lazy">
                                     <h4>Wedding</h4>
-                                    <p>1200+ Profiles</p>
+                                    <p>20+ Weddings</p>
                                     <a href="{{ route('wedding') }}">View more</a>
                                 </div>
                             </div>

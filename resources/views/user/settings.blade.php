@@ -44,7 +44,7 @@
                                                     <div class="sett-select-drop">
                                                         <select name="photo">
                                                             <option value="1" {{ ($settings->show_profile_photo == 1) ? 'selected' : '' }}>Visible to All</option>
-                                                            <option value="0" {{ ($settings->show_profile_photo != 1) ? 'selected' : '' }}>No-more visible</option>
+                                                            <option value="0" {{ ($settings->show_profile_photo != 1) ? 'selected' : '' }}>Not Visible</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -60,7 +60,7 @@
                                                     <div class="sett-select-drop">
                                                         <select name="address">
                                                             <option value="1" {{ ($settings->show_address == 1) ? 'selected' : '' }}>Visible to All</option>
-                                                            <option value="0" {{ ($settings->show_address != 1) ? 'selected' : '' }}>No-more visible</option>
+                                                            <option value="0" {{ ($settings->show_address != 1) ? 'selected' : '' }}>Not Visible</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -76,7 +76,7 @@
                                                     <div class="sett-select-drop">
                                                         <select name="email">
                                                             <option value="1" {{ ($settings->show_email == 1) ? 'selected' : '' }}>Visible to All</option>
-                                                            <option value="0" {{ ($settings->show_email != 1) ? 'selected' : '' }}>No-more visible</option>
+                                                            <option value="0" {{ ($settings->show_email != 1) ? 'selected' : '' }}>Not Visible</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -92,7 +92,7 @@
                                                     <div class="sett-select-drop">
                                                         <select name="mobile">
                                                             <option value="1" {{ ($settings->show_contact_number == 1) ? 'selected' : '' }}>Visible to All</option>
-                                                            <option value="0" {{ ($settings->show_contact_number != 1) ? 'selected' : '' }}>No-more visible</option>
+                                                            <option value="0" {{ ($settings->show_contact_number != 1) ? 'selected' : '' }}>Not Visible</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -106,6 +106,19 @@
                                                 </div>
                                                 <div class="sett-rig">
                                                     {{ html()->password('password')->class('form-control')->placeholder('******') }}
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sett-lef">
+                                                    <div class="sett-rad-left">
+                                                        <h5>Intro Video Url</h5>
+                                                        <p>You can add intro video url here. (for premium profiles only)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="sett-rig">
+                                                    {{ html()->text('intro_video_url', $settings->intro_video_url)->if(in_array(Auth::user()->plans->name, ['Free']), function($el){
+                                                        return $el->attribute('readonly', 'true');
+                                                    })->class('form-control')->placeholder('Intro Video Url') }}
                                                 </div>
                                             </li>
                                             <li>

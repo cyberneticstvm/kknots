@@ -7,6 +7,7 @@ use App\Mail\ForgotPassword;
 use App\Models\Payment;
 use App\Models\ProfileSetting;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -61,6 +62,8 @@ class AuthController extends Controller
             'terms' => 'accepted',
         ]);
         try {
+            if (Carbon::parse($request->dob)->age < 18)
+                throw new Exception("Age should be greater than or equal to 18");
             $input = $request->except(array('password_confirmation', 'terms'));
             $input['plan'] = 1;
             $input['role'] = 21;

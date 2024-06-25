@@ -20,8 +20,8 @@
                         <div>
                             <div class="form-tit">
                                 <h4>Start for free</h4>
-                                <h1>Sign in to Matrimony</h1>
-                                <p>Not a member? <a href="{{ route('register') }}">Sign up now</a></p>
+                                <h1>Login to our Portal</h1>
+                                <p>Not a member? <a href="{{ route('register') }}">Register now</a></p>
                             </div>
                             <div class="form-login">
                                 @include('flash-message')
@@ -45,7 +45,7 @@
                                         {{ html()->checkbox('remember', old('remember'))->class('form-check-input') }} Remember me
                                     </label>
                                 </div>
-                                {{ html()->submit('Sign In')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Login')->class('btn btn-primary btn-submit') }}
                                 {{ html()->form()->close() }}
                                 <div class="form-tit mt-3">
                                     <p><a href="{{ route('forgot.password') }}">Forgot Password?</a></p>

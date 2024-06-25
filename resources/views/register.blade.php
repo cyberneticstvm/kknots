@@ -19,7 +19,7 @@
                         <div>
                             <div class="form-tit">
                                 <h4>Start for free</h4>
-                                <h1>Sign up to Matrimony</h1>
+                                <h1>Register into our Portal</h1>
                                 <p>Already a member? <a href="{{ route('login') }}">Login</a></p>
                             </div>
                             <div class="form-login">
