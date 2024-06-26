@@ -11,7 +11,7 @@
                             @if($profile->settings?->show_profile_photo)
                             <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
                             @else
-                            <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
+                            <!--<img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">-->
                             @endif
                         </div>
                     </div>
