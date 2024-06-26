@@ -12,4 +12,9 @@ class ProfileSettingDetail extends Model
     protected $guarded = [];
 
     public $timestamps = false;
+
+    public function extras()
+    {
+        return $this->belongsTo(Extra::class, 'name', 'id');
+    }
 }

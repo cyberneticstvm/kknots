@@ -75,7 +75,10 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-8 text-center text-white mt-3">തലമുറകളിലൂടെ കൈമാറി വന്ന വൈവാഹിക പാരമ്പര്യത്തിന്റെ തനിമ ഒട്ടും കൈവിടാതെ അതി നൂതന സാങ്കേതിക വിദ്യയിലൂടെ ജീവിത പങ്കാളിയെ കണ്ടെത്താൻ Kerala Knots നിങ്ങളെ സഹായിക്കുന്നു !</div>
+                    <div class="col-8 text-center text-white mt-3">തലമുറകളിലൂടെ കൈമാറി വന്ന വൈവാഹിക പാരമ്പര്യത്തിൻ്റെ തനിമ ഒട്ടും കൈവിടാതെ അതി നൂതന സാങ്കേതിക വിദ്യയിലൂടെ ജീവിത പങ്കാളിയെ കണ്ടെത്താൻ Kerala Knots നിങ്ങളെ സഹായിക്കുന്നു !</div>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="col-8 text-center text-white mt-3 blink">Free Counselling</h1>
                 </div>
             </div>
         </div>
@@ -250,7 +253,6 @@
     </div>
 </section>
 <!-- END -->
-
 <!-- TRUST BRANDS -->
 <section>
     <div class="hom-cus-revi">

@@ -8,10 +8,10 @@
                 <div class="profile">
                     <div class="pg-pro-big-im">
                         <div class="s1">
-                            @if($profile->settings->show_profile_photo)
+                            @if($profile->settings?->show_profile_photo)
                             <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
                             @else
-
+                            <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
                             @endif
                         </div>
                     </div>
@@ -19,34 +19,37 @@
                 <div class="profi-pg profi-bio">
                     <div class="lhs">
                         <div class="pro-pg-intro">
-                            <h1>{{ $profile->name }}</h1>
+                            <h1>{{ $profile?->name }}</h1>
                             <div class="pro-info-status">
-                                <span class="stat-1"><b>100</b> viewers</span>
-                                <span class="stat-2"><b>Available</b> online</span>
+                                @if($profile?->settings?->verified == 1)
+                                <span class="stat-2">Verified</span>
+                                @else
+                                <span class="stat-1">Profile Not Verified</span>
+                                @endif
                             </div>
                             <ul>
                                 <li>
                                     <div>
-                                        <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>City: <strong>{{ $profile->settings->district->name }}</strong></span>
+                                        <img src="{{ asset('/assets/images/icon/pro-age.png') }}" loading="lazy" alt="">
+                                        <span>City: <strong>{{ $profile?->settings?->district?->name }}</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
                                         <img src="{{ asset('/assets/images/icon/pro-age.png') }}" loading="lazy" alt="">
-                                        <span>Age: <strong>{{ $profile->age() }}</strong></span>
+                                        <span>Age: <strong>{{ $profile?->age() }}</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
-                                        <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>Height: <strong>{{ $profile->settings->height }} CMs</strong></span>
+                                        <img src="{{ asset('/assets/images/icon/pro-age.png') }}" loading="lazy" alt="">
+                                        <span>Height: <strong>{{ $profile?->settings?->height }} CMs</strong></span>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
-                                        <img src="{{ asset('/assets/images/icon/pro-city.png') }}" loading="lazy" alt="">
-                                        <span>Job: <strong>{{ $profile->settings->occupations->name }}</strong></span>
+                                        <img src="{{ asset('/assets/images/icon/pro-age.png') }}" loading="lazy" alt="">
+                                        <span>Job: <strong>{{ $profile?->settings?->occupations?->name }}</strong></span>
                                     </div>
                                 </li>
                             </ul>
@@ -62,7 +65,7 @@
                         <div class="pr-bio-c pr-bio-gal" id="gallery">
                             <h3>Photo gallery</h3>
                             <div id="image-gallery">
-                                @forelse($profile->settings->details->where('category', 'photo') as $key => $photo)
+                                @forelse($profile?->settings?->details?->where('category', 'photo') as $key => $photo)
                                 <div class="pro-gal-imag">
                                     <div class="img-wrapper">
                                         <a href="#!"><img src="{{ asset($photo->name) }}" class="img-responsive" alt=""></a>
@@ -80,14 +83,14 @@
                         <div class="pr-bio-c pr-bio-conta">
                             <h3>Contact info</h3>
                             <ul>
-                                @if($profile->settings->show_contact_number)
+                                @if($profile?->settings?->show_contact_number)
                                 <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b>{{ $profile->mobile }}</span></li>
                                 @endif
-                                @if($profile->settings->show_email)
+                                @if($profile?->settings?->show_email)
                                 <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Email:</b>{{ $profile->email }}</span>
                                     @endif
                                 </li>
-                                @if($profile->settings->show_address)
+                                @if($profile?->settings?->show_address)
                                 <li><span><i class="fa fa fa-map-marker" aria-hidden="true"></i><b>Address: </b>{{ $profile->settings->address }}</span></li>
                                 @endif
                             </ul>
@@ -97,38 +100,33 @@
                         <div class="pr-bio-c pr-bio-info">
                             <h3>Personal information</h3>
                             <ul>
-                                <li><b>Name:</b> {{ $profile->name }}</li>
-                                <li><b>Father's name:</b> {{ $profile->settings->father_name }}</li>
-                                <li><b>Age:</b> {{ $profile->age() }}</li>
-                                <li><b>Date of birth:</b>{{ $profile->dob->format('d.M.Y') }}</li>
-                                <li><b>Height:</b>{{ $profile->settings->height }}</li>
-                                <li><b>Weight:</b>{{ $profile->settings->weight }}</li>
-                                <li><b>Degree:</b> {{ $profile->settings->qualifications->name }}</li>
-                                <li><b>Religion:</b> {{ $profile->religions?->name }}</li>
-                                <li><b>Profession:</b> {{ $profile->settings->occupations->name }}</li>
-                                <li><b>Company:</b> {{ $profile->settings->company_name }}</li>
-                                <li><b>Salary:</b> {{ $profile->settings->salary }}</li>
+                                <li><b>Name:</b> {{ $profile?->name }}</li>
+                                <li><b>Father's name:</b> {{ $profile?->settings?->father_name }}</li>
+                                <li><b>Age:</b> {{ $profile?->age() }}</li>
+                                <li><b>Date of birth:</b>{{ $profile?->dob?->format('d.M.Y') }}</li>
+                                <li><b>Height:</b>{{ $profile?->settings?->height }}</li>
+                                <li><b>Weight:</b>{{ $profile?->settings?->weight }}</li>
+                                <li><b>Degree:</b> {{ $profile?->settings?->qualifications?->name }}</li>
+                                <li><b>Religion:</b> {{ $profile?->religions?->name }}</li>
+                                <li><b>Profession:</b> {{ $profile?->settings?->occupations?->name }}</li>
+                                <li><b>Company:</b> {{ $profile?->settings?->company_name }}</li>
+                                <li><b>Salary:</b> {{ $profile?->settings?->salary }}</li>
                             </ul>
                         </div>
                         <!-- END PROFILE ABOUT -->
                         <!-- PROFILE ABOUT -->
                         <div class="pr-bio-c pr-bio-hob">
-                            <h3>Hobbies</h3>
+                            <h3>Interest & Habits</h3>
                             <ul>
-                                <li><span>Modelling</span></li>
-                                <li><span>Watching movies</span></li>
-                                <li><span>Playing volleyball</span></li>
-                                <li><span>Hangout with family</span></li>
-                                <li><span>Adventure travel</span></li>
-                                <li><span>Books reading</span></li>
-                                <li><span>Music</span></li>
-                                <li><span>Cooking</span></li>
-                                <li><span>Yoga</span></li>
+                                @forelse($handi as $key => $item)
+                                <li><span>{{ ucfirst($item?->extras?->category) }}: {{ $item?->extras?->name }}</span></li>
+                                @empty
+                                @endforelse
                             </ul>
                         </div>
                         <!-- END PROFILE ABOUT -->
                         <!-- PROFILE ABOUT -->
-                        <div class="pr-bio-c menu-pop-soci pr-bio-soc">
+                        <!--<div class="pr-bio-c menu-pop-soci pr-bio-soc">
                             <h3>Social media</h3>
                             <ul>
                                 <li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -138,7 +136,7 @@
                                 <li><a href="#!"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                                 <li><a href="#!"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             </ul>
-                        </div>
+                        </div>-->
                         <!-- END PROFILE ABOUT -->
 
 
@@ -167,7 +165,7 @@
                                             <span class="badge badge-success">21 Years old</span>
                                         </div>
                                         <div class="wedd-rel-con">
-                                            <h5>{{ $item->name }}</h5>
+                                            <h5>{{ $item?->name }}</h5>
                                             <span>City: <b>New York City</b></span>
                                         </div>
                                         <a href="profile-details.html" class="fclick"></a>

@@ -132,8 +132,8 @@
                                 <div class="all-pro-box user-avil-onli" data-useravil="avilyes" data-aviltxt="Available online">
                                     <!--PROFILE IMAGE-->
                                     <div class="pro-img">
-                                        <a href="profile-details.html">
-                                            <img src="{{ asset('/assets/images/profiles/4.jpg') }}" alt="">
+                                        <a href="{{ route('user.profile', encrypt($profile->id)) }}">
+                                            <img src="{{ ($profile->settings->profile_photo) ? asset($profile->settings->profile_photo) : asset('/assets/images/profiles/4.jpg') }}" alt="">
                                         </a>
                                         <div class="pro-ave" title="User currently available">
                                             <span class="pro-ave-yes"></span>
@@ -146,7 +146,7 @@
 
                                     <!--PROFILE NAME-->
                                     <div class="pro-detail">
-                                        <h4><a href="profile-details.html">{{ $profile->name }}</a></h4>
+                                        <h4><a href="{{ route('user.profile', encrypt($profile->id)) }}">{{ $profile->name }}</a></h4>
                                         <div class="pro-bio">
                                             <span>{{ $profile?->settings?->qualifications?->name }}</span>
                                             <span>{{ $profile?->settings?->occupations?->name }}</span>
