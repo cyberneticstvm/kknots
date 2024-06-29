@@ -102,6 +102,12 @@
                         <li><a href="https://www.facebook.com/keralaknots" target="_blank"><img src="{{ asset('/assets/images/social/3.png') }}" alt="" loading="lazy"></a></li>
                         <li><a href="https://www.instagram.com/kerala.knots" target="_blank"><img src="{{ asset('/assets/images/social/7.png') }}" alt="" loading="lazy"></a></li>
                     </ul>
+                    <ul class="mt-3">
+                        <li><a href="{{ route('privacy') }}">Privacy Policy | </a>
+                        </li>
+                        <li><a href="{{ route('privacy') }}">Terms & Conditions</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row foot-count">

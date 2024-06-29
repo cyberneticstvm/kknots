@@ -51,10 +51,18 @@
 	z-index: 9 !important;
 }
 
+.h2{
+	font-size: x-large;
+}
+.dot li{
+	list-style-type: disc !important;
+}
+
 .blink{	
 	animation: animate  
                 1.5s linear infinite;
 }
+
 
 @keyframes animate { 
 	0% { 

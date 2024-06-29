@@ -43,7 +43,8 @@ class WebController extends Controller
         else :
             $gender = Extra::where('category', 'gender')->pluck('name', 'id');
             $hows = Extra::where('category', 'how_to_know')->pluck('name', 'id');
-            return view('register', compact('gender', 'hows'));
+            $profile_for = Extra::where('category', 'profile_for')->pluck('name', 'id');
+            return view('register', compact('gender', 'hows', 'profile_for'));
         endif;
     }
 
@@ -83,5 +84,10 @@ class WebController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function privacy()
+    {
+        return view('privacy');
     }
 }

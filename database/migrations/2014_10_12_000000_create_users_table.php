@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('referral_code', 25)->nullable();
             $table->unsignedBigInteger('how_to_know')->nullable();
             $table->integer('verified')->default(0);
+            $table->unsignedBigInteger('profile_for')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

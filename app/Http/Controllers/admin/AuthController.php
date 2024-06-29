@@ -59,6 +59,7 @@ class AuthController extends Controller
             'password_confirmation' => 'required',
             'referral_code' => 'nullable|exists:users,referral_code',
             'how_to_know' => 'required',
+            'profile_for' => 'required',
             'terms' => 'accepted',
         ]);
         try {

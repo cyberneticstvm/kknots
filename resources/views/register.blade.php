@@ -54,6 +54,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label class="lb req">Profile creating for:</label>
+                                    {{ html()->select('profile_for', $profile_for, old('profile_for'))->class('form-control')->placeholder('Select') }}
+                                    @error('profile_for')
+                                    <small class="text-danger">{{ $errors->first('profile_for') }}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label class="lb req">Password:</label>
                                     {{ html()->password('password', old('password'))->class('form-control')->placeholder('******') }}
                                     @error('password')
