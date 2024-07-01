@@ -8,9 +8,9 @@
                 <div class="row">
                     <div class="hom-ban">
                         <div class="ban-tit">
-                            <div class="mb-3">
+                            <!--<div class="mb-3">
                                 {{ html()->a(route('register'), 'REGISTER NOW!')->class('btn btn-link text-white fw-bold blink h2') }}
-                            </div>
+                            </div>-->
                             <h1>Find your<br>Right Match in <b class="text-red">Kerala Knots</b></h1>
                             <p>Most trusted Matrimony Brand in Kerala.</p>
                         </div>

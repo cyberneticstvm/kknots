@@ -122,6 +122,13 @@
                 <!--END MOBILE MENU-->
             </div>
         </div>
+        @if(!Auth::id())
+        <div class="row">
+            <div class="col">
+                <marquee><a href="{{ route('register') }}" class="btn btn-link fw-bold h2 text-red">REGISTER NOW!</a></marquee>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 <!-- END -->

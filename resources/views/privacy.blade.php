@@ -65,6 +65,9 @@
                                     <h5 class="mt-3">Changes to This Privacy Policy</h5>
                                     <p class="mt-3 mb-3">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page with an updated effective date.</p>
 
+                                    <p>If any cheating done by the clients in updating their information, we will not be responsible for it, more, the cleints itself will be responsible for the same.</p>
+                                    <p>If any unforeseen circumstances happened we are not legally liable for the outcomings</p>
+
                                     <h5 class="mt-3">Contact Us</h5>
                                     <p class="mt-3 mb-3">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:help@keralaknots.com" class="text-primary">help@keralaknots.com</a></p>
 
