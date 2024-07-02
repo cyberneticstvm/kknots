@@ -33,6 +33,7 @@ Route::middleware(['web'])->group(function () {
         Route::get('/gallery', 'gallery')->name('gallery');
         Route::get('/browse/profile', 'browseProfile')->name('browse.profile');
         Route::get('/privacy-policy', 'privacy')->name('privacy');
+        Route::get('/terms-and-conditions', 'terms')->name('terms');
     });
 
     Route::controller(AuthController::class)->group(function () {

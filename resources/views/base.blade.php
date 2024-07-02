@@ -105,7 +105,7 @@
                     <ul class="mt-3">
                         <li><a href="{{ route('privacy') }}">Privacy Policy | </a>
                         </li>
-                        <li><a href="{{ route('privacy') }}">Terms & Conditions</a>
+                        <li><a href="{{ route('terms') }}">Terms & Conditions</a>
                         </li>
                     </ul>
                 </div>

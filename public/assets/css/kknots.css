@@ -60,7 +60,7 @@
 
 .blink{	
 	animation: animate  
-                1.5s linear infinite;
+                2.9s linear infinite;
 }
 
 
@@ -70,7 +70,7 @@
 	} 
 
 	50% { 
-		opacity: 0.7; 
+		opacity: 0.5; 
 	} 
 
 	100% { 
