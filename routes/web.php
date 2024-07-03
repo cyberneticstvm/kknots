@@ -34,6 +34,9 @@ Route::middleware(['web'])->group(function () {
         Route::get('/browse/profile', 'browseProfile')->name('browse.profile');
         Route::get('/privacy-policy', 'privacy')->name('privacy');
         Route::get('/terms-and-conditions', 'terms')->name('terms');
+
+        Route::get('/sitemap.xml', 'sitemap')->name('sitemap');
+        Route::get('/robots.txt', 'robots')->name('robots');
     });
 
     Route::controller(AuthController::class)->group(function () {

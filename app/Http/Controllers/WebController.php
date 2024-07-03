@@ -95,4 +95,14 @@ class WebController extends Controller
     {
         return view('terms');
     }
+
+    public function sitemap()
+    {
+        return response()->view('sitemap')->header('Content-Type', 'text/xml');
+    }
+
+    public function robots()
+    {
+        return response()->view('robots')->header('Content-Type', 'text/plain');
+    }
 }
