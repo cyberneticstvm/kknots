@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ForgotPassword;
+use App\Mail\RegistrationNotification;
 use App\Models\Payment;
 use App\Models\ProfileSetting;
 use App\Models\User;
@@ -27,10 +28,10 @@ class AuthController extends Controller
             $credentials = $request->only('mobile', 'password');
             if (Auth::attempt($credentials, $request->remember)) {
                 if (Auth::user()->role == 21) :
-                    return redirect()->route('user.dashboard',)
+                    return redirect()->route('user.profile.edit', encrypt(Auth::user()->id))
                         ->withSuccess('User logged in successfully');
                 else :
-                    return redirect()->route('admin.dashboard',)
+                    return redirect()->route('admin.dashboard')
                         ->withSuccess('User logged in successfully');
                 endif;
             }
@@ -68,11 +69,13 @@ class AuthController extends Controller
             $input = $request->except(array('password_confirmation', 'terms'));
             $input['plan'] = 1;
             $input['role'] = 21;
+            $user = collect();
             DB::transaction(function () use ($input) {
                 $user = User::create($input);
                 ProfileSetting::insert([
                     'user_id' => $user->id,
                 ]);
+                Mail::to(settings()->contact_email)->send(new RegistrationNotification($user));
             });
         } catch (Exception $e) {
             return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());

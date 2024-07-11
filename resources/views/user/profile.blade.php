@@ -11,6 +11,57 @@
                             {{ html()->form('POST', route('user.profile.update', $profile->id))->class('')->acceptsFiles()->open() }}
                             <!--PROFILE BIO-->
                             <div class="edit-pro-parti">
+                                <div class="edit-pro-parti">
+                                    <div class="form-tit">
+                                        <h4>Profile</h4>
+                                        <h1>Profile Photo & Horoscope</h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label class="lb">Profile Photo Main (360px width and 240px height):</label>
+                                            {{ html()->file('profile_photo')->class('form-control main_img') }}
+                                            <div id="main_img" class="text-center">
+                                                <img src="{{ ($profile?->profile_photo) ? asset($profile?->profile_photo) : '' }}" width="10%" />
+                                                @if($profile?->profile_photo)
+                                                <p class="mt-1"><a href="{{ route('user.profile.photo.remove', encrypt($profile->id)) }}" class="dlt">Remove Profile Photo</a></p>
+                                                @endif
+                                            </div>
+                                            @error('profile_photo')
+                                            <small class="text-danger">{{ $errors->first('profile_photo') }}</small>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-12 form-group pro-pg-intro">
+                                            <label class="lb">Additional Photos <small>(Multiple selection enabled)</small></label>
+                                            {{ html()->file('photos[]')->class('form-control multi_img')->multiple() }}
+                                            <div id="multi_img" class="text-center pro-info-status mt-3">
+                                                <ul>
+                                                    @forelse($profile->details->where('category', 'photo') as $key => $item)
+                                                    <li>
+                                                        <div>
+                                                            <img src="{{ ($item?->name) ? asset($item?->name) : '' }}" width="10%" loading="lazy" alt="">
+                                                            <p class="mt-1"><a href="{{ route('user.other.photo.remove', encrypt($item->id)) }}" class="dlt">Remove</a></p>
+                                                        </div>
+                                                    </li>
+                                                    @empty
+                                                    @endforelse
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <label class="lb">Horoscope:</label>
+                                            {{ html()->file('horoscope')->class('form-control') }}
+                                            <div class="text-center">
+                                                @if($profile?->horoscope)
+                                                <p class="mt-3"><a href="{{ asset($profile?->horoscope) }}"><i class="fa fa-file-o"></i></a></p>
+                                                <p class="mt-1"><a href="{{ route('user.horoscope.remove', encrypt($profile->id)) }}" class="dlt">Remove</a></p>
+                                                @endif
+                                            </div>
+                                            @error('horoscope')
+                                            <small class="text-danger">{{ $errors->first('horoscope') }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-tit">
                                     <h4>Basic info</h4>
                                     <h1>Edit my profile</h1>
@@ -464,56 +515,17 @@
                             <div class="edit-pro-parti">
                                 <div class="form-tit">
                                     <h4>Profile</h4>
-                                    <h1>Profile Photo & Horoscope</h1>
+                                    <h1>Profile Status</h1>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <label class="lb">Profile Photo Main (360px width and 240px height):</label>
-                                        {{ html()->file('profile_photo')->class('form-control main_img') }}
-                                        <div id="main_img" class="text-center">
-                                            <img src="{{ ($profile?->profile_photo) ? asset($profile?->profile_photo) : '' }}" width="10%" />
-                                            @if($profile?->profile_photo)
-                                            <p class="mt-1"><a href="{{ route('user.profile.photo.remove', encrypt($profile->id)) }}" class="dlt">Remove Profile Photo</a></p>
-                                            @endif
-                                        </div>
-                                        @error('profile_photo')
-                                        <small class="text-danger">{{ $errors->first('profile_photo') }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-12 form-group pro-pg-intro">
-                                        <label class="lb">Additional Photos <small>(Multiple selection enabled)</small></label>
-                                        {{ html()->file('photos[]')->class('form-control multi_img')->multiple() }}
-                                        <div id="multi_img" class="text-center pro-info-status mt-3">
-                                            <ul>
-                                                @forelse($profile->details->where('category', 'photo') as $key => $item)
-                                                <li>
-                                                    <div>
-                                                        <img src="{{ ($item?->name) ? asset($item?->name) : '' }}" width="10%" loading="lazy" alt="">
-                                                        <p class="mt-1"><a href="{{ route('user.other.photo.remove', encrypt($item->id)) }}" class="dlt">Remove</a></p>
-                                                    </div>
-                                                </li>
-                                                @empty
-                                                @endforelse
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 form-group">
-                                        <label class="lb">Horoscope:</label>
-                                        {{ html()->file('horoscope')->class('form-control') }}
-                                        <div class="text-center">
-                                            @if($profile?->horoscope)
-                                            <p class="mt-3"><a href="{{ asset($profile?->horoscope) }}"><i class="fa fa-file-o"></i></a></p>
-                                            <p class="mt-1"><a href="{{ route('user.horoscope.remove', encrypt($profile->id)) }}" class="dlt">Remove</a></p>
-                                            @endif
-                                        </div>
-                                        @error('horoscope')
-                                        <small class="text-danger">{{ $errors->first('horoscope') }}</small>
-                                        @enderror
-                                    </div>
                                     @if(Auth::user()->role == 19)
                                     <div class="form-group col-md-12">
                                         <label class="lb">Verification:</label>
-                                        {{ html()->select('verified', array('1' => 'verified', '0' => 'Not Verified'), $profile->user->verified)->class('chosen-select')->placeholder('Select') }}
+                                        {{ html()->select('verified', array('1' => 'Verified', '0' => 'Not Verified'), $profile->user->verified)->class('chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    @else
+                                    <div class="form-group col-md-12">
+                                        {{ ($profile->user->verified) ? 'Verified' : 'Not Verified' }}
                                     </div>
                                     @endif
                                 </div>
