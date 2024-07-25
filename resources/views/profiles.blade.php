@@ -133,7 +133,7 @@
                                     <!--PROFILE IMAGE-->
                                     <div class="pro-img">
                                         <a href="{{ route('user.profile', encrypt($profile->id)) }}">
-                                            <img src="{{ ($profile->settings->profile_photo) ? asset($profile->settings->profile_photo) : asset('/assets/images/profiles/4.jpg') }}" alt="">
+                                            <img src="{{ ($profile->settings->profile_photo) ? asset($profile->settings->profile_photo) : (($profile->gender == 2) ? asset('/assets/images/profiles/bride.svg') : asset('/assets/images/profiles/groom.svg')) }}" alt="">
                                         </a>
                                         <div class="pro-ave" title="User currently available">
                                             <span class="pro-ave-yes"></span>

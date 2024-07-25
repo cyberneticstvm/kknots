@@ -74,7 +74,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     });
 
     Route::prefix('user/')->controller(HelperController::class)->group(function () {
-        Route::get('profile/{id}', 'profile')->name('user.profile')->middleware('user');
+        Route::get('profile/{id}', 'profile')->name('user.profile');
     });
 });
 

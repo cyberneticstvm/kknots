@@ -300,9 +300,9 @@
                                     <i class="cir-com cir-2"></i>
                                     <i class="cir-com cir-3"></i>
                                 </div>
-                                <p class="text-justify">"Our journey began with a simple match on Kerala Knots. The compatibility tests and interest-based matching helped us find common ground, and now we are building a beautiful life together. Thank you for bringing us together!"</p>
-                                <h5>Sana & Rohan</h5>
-                                <span>New Delhi</span>
+                                <p class="text-justify">"The platform was user-friendly, and the profiles were detailed and genuine. Within a short time, I connected with someone who shares my values and interests. The customer support team was responsive and helpful throughout the process. I highly recommend Kerala Knots to anyone looking for a meaningful relationship!"</p>
+                                <h5>Gowri & Anand</h5>
+                                <span>Kerala</span>
                             </div>
                         </li>
                     </ul>
