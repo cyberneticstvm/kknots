@@ -9,9 +9,9 @@
                     <div class="pg-pro-big-im">
                         <div class="s1">
                             @if($profile->settings?->show_profile_photo)
-                            <img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">
+                            <img src="{{ ($profile->settings->profile_photo) ? asset($profile->settings->profile_photo) : (($profile->gender == 2) ? asset('/assets/images/profiles/bride.svg') : asset('/assets/images/profiles/groom.svg')) }}" loading="lazy" class="pro" alt="">
                             @else
-                            <!--<img src="{{ asset($profile?->settings?->profile_photo) }}" loading="lazy" class="pro" alt="">-->
+                            <img src="{{ ($profile->gender == 2) ? asset('/assets/images/profiles/bride.svg') : asset('/assets/images/profiles/groom.svg') }}" loading="lazy" class="pro" alt="">
                             @endif
                         </div>
                     </div>
@@ -161,14 +161,14 @@
                                 <li>
                                     <div class="wedd-rel-box">
                                         <div class="wedd-rel-img">
-                                            <img src="{{ asset('/assets/images/profiles/1.jpg') }}" alt="">
+                                            <img src="{{ ($item->settings->profile_photo) ? asset($item->settings->profile_photo) : (($item->gender == 2) ? asset('/assets/images/profiles/bride.svg') : asset('/assets/images/profiles/groom.svg')) }}" alt="">
                                             <span class="badge badge-success">21 Years old</span>
                                         </div>
                                         <div class="wedd-rel-con">
                                             <h5>{{ $item?->name }}</h5>
-                                            <span>City: <b>New York City</b></span>
+                                            <span>City: <b>{{ $item->settings->city }}</b></span>
                                         </div>
-                                        <a href="profile-details.html" class="fclick"></a>
+                                        <a href="{{ route('user.profile', encrypt($item->id)) }}" class="fclick"></a>
                                     </div>
                                 </li>
                                 @empty
