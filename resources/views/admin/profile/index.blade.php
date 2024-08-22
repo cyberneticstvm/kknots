@@ -13,6 +13,7 @@
                             <thead>
                                 <tr>
                                     <th>SL No</th>
+                                    <th>Edit</th>
                                     <th>Full Name</th>
                                     <th>Gender</th>
                                     <th>Contact Number</th>
@@ -22,7 +23,6 @@
                                     <th>Payment</th>
                                     <th>Verified</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -30,6 +30,7 @@
                                 @forelse($profiles as $key => $profile)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
+                                    <td class="text-center"><a href="{{ route('user.profile.edit', encrypt($profile->id)) }}"><i class="fa fa-pencil text-warning"></i></a></td>
                                     <td>{{ $profile->name }}</td>
                                     <td>{{ $profile->genders->name }}</td>
                                     <td>{{ $profile->mobile }}</td>
@@ -39,7 +40,6 @@
                                     <td><a href="{{ route('admin.payment.create', encrypt($profile->id)) }}">Pay Now</a></a></td>
                                     <td class="text-center">{!! $profile->verified() !!}</td>
                                     <td>{!! $profile->status() !!}</td>
-                                    <td class="text-center"><a href="{{ route('user.profile.edit', encrypt($profile->id)) }}"><i class="fa fa-pencil text-warning"></i></a></td>
                                     <td class="text-center"><a href="{{ route('user.close.account', encrypt($profile->id)) }}" class="dlt"><i class="fa fa-trash text-danger"></i></a></td>
                                 </tr>
                                 @empty
