@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                                 @forelse($profiles as $key => $profile)
-                                <tr class="{{ $profile->status() }}">
+                                <tr class="{{ $profile->redRow() }}">
                                     <td>{{ $key + 1 }}</td>
                                     <td class="text-center"><a href="{{ route('user.profile.edit', encrypt($profile->id)) }}"><i class="fa fa-pencil text-warning"></i></a></td>
                                     <td>{{ $profile->name }}</td>
