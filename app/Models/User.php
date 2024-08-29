@@ -53,6 +53,11 @@ class User extends Authenticatable
         return ($this->deleted_at) ? "<span class='badge bg-danger'>Deleted</span>" : "<span class='badge bg-success'>Active</span>";
     }
 
+    public function redRow()
+    {
+        return ($this->deleted_at) ? "text-danger" : "";
+    }
+
     public function verified()
     {
         return ($this->verified == 1) ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-times text-danger'></i>";
