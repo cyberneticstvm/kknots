@@ -26,6 +26,7 @@
             <li><a href="{{ route('admin.manage.profile') }}">Manage Profile</a></li>
             <li><a href="{{ route('admin.manage.plans') }}">Manage Plans</a></li>
             <li><a href="{{ route('admin.manage.payment') }}">Manage Payment</a></li>
+            <li><a href="{{ route('admin.extras') }}">Manage Master Data</a></li>
             <li><a href="{{ route('admin.report.payment') }}">Report Payment</a></li>
             <li><a href="{{ route('admin.report.registration') }}">Report Registration</a></li>
             @endif
@@ -89,6 +90,7 @@
             <li><a href="{{ route('admin.manage.profile') }}">Manage Profile</a></li>
             <li><a href="{{ route('admin.manage.plans') }}">Manage Plans</a></li>
             <li><a href="{{ route('admin.manage.payment') }}">Manage Payment</a></li>
+            <li><a href="{{ route('admin.extras') }}">Manage Master Data</a></li>
             <li><a href="{{ route('admin.report.payment') }}">Report Payment</a></li>
             <li><a href="{{ route('admin.report.registration') }}">Report Registration</a></li>
             @endif

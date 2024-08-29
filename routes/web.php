@@ -82,6 +82,12 @@ Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('admin.dashboard');
     });
+
+    Route::controller(HelperController::class)->group(function () {
+        Route::get('extras', 'extras')->name('admin.extras')->middleware('admin');
+        Route::post('extras', 'updateExtras')->name('admin.extras.update')->middleware('admin');
+    });
+
     Route::controller(UserController::class)->group(function () {
         Route::get('staffs', 'index')->name('admin.manage.staff')->middleware('admin');
         Route::get('staff/create', 'create')->name('admin.staff.create')->middleware('admin');
