@@ -63,6 +63,10 @@
                 2.9s linear infinite;
 }
 
+.text-danger>td{
+	background-color: #c10502 !important;
+}
+
 
 @keyframes animate { 
 	0% { 
