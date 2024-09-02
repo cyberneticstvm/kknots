@@ -56,6 +56,10 @@
                                     <div>Profile type</div>
                                     <div>{{ $user->plans->name }}</div>
                                 </li>
+                                <li>
+                                    <div>Profile Completeness %</div>
+                                    <div>{{ $user->getPercentComplete() }}%</div>
+                                </li>
                             </ul>
                         </div>
                         <div class="sett-acc-edit">

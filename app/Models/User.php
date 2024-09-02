@@ -92,4 +92,24 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Caste::class, 'caste', 'id');
     }
+
+    public function getPercentComplete(): float
+    {
+        $attributes = [
+            'city',
+            'gender',
+            'dob',
+            'marital_status',
+            'email',
+            'mobile',
+            'religion',
+            'caste',
+            'subcaste',
+            'verified'
+        ];
+        $complete = collect($attributes)->map(fn($attribute) => $this->getAttribute($attribute))
+            ->filter()
+            ->count();
+        return ($complete / count($attributes)) * 100;
+    }
 }

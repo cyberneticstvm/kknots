@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use App\Models\AdminSetting;
+use Illuminate\Support\Facades\Auth;
 
 function uploadFile($file, $path)
 {
