@@ -20,7 +20,7 @@ class ProfileExport implements FromCollection, WithHeadings
                 'Name' => $data->name,
                 'Mobile' => $data->mobile,
                 'Email' => $data->email,
-                'DOB' => $data->dob,
+                'DOB' => $data->dob->format('d.M.Y'),
                 'Gender' => $data->genders?->name,
                 'Religion' => $data->religions?->name,
                 'Caste' => $data->casts?->name,
