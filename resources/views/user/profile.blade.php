@@ -60,6 +60,14 @@
                                             <small class="text-danger">{{ $errors->first('horoscope') }}</small>
                                             @enderror
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="lb">Born Star:</label>
+                                            {{ html()->select('born_star', $stars->pluck('name_ml', 'id'), $profile->born_star)->class('chosen-select')->placeholder('Select') }}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="lb">Born Time:</label>
+                                            {{ html()->text('born_time', $profile->born_time)->class('form-control')->placeholder('Born Time') }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-tit">

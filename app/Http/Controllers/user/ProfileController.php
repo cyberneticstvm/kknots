@@ -12,6 +12,7 @@ use App\Models\ProfileSetting;
 use App\Models\ProfileSettingDetail;
 use App\Models\Qualification;
 use App\Models\Religion;
+use App\Models\Star;
 use App\Models\State;
 use App\Models\User;
 use Carbon\Carbon;
@@ -49,7 +50,8 @@ class ProfileController extends Controller
         $qualifications = Qualification::orderBy('name')->pluck('name', 'id');
         $casts = Caste::whereNotIn('name', ['Other'])->orderBy('name')->pluck('name', 'id');
         $religions = Religion::orderBy('name')->get();
-        return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts', 'religions'));
+        $stars = Star::orderBy('id')->get();
+        return view('user.profile', compact('extras', 'districts', 'states', 'profile', 'occupations', 'incomes', 'qualifications', 'casts', 'religions', 'stars'));
     }
 
     public function updateProfile(Request $request, string $id)
