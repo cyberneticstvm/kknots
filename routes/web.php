@@ -111,6 +111,8 @@ Route::prefix('admin/')->middleware(['web', 'auth'])->group(function () {
         Route::get('payment/edit/{id}', 'editPayment')->name('admin.payment.edit')->middleware('admin');
         Route::put('payment/edit/{id}', 'updatePayment')->name('admin.payment.update')->middleware('admin');
         Route::get('payment/delete/{id}', 'deletePayment')->name('admin.payment.delete')->middleware('admin');
+
+        Route::get('profile-export', 'profileExport')->name('admin.profiles.export')->middleware('admin');
     });
 
     Route::prefix('/report')->controller(ReportController::class)->group(function () {

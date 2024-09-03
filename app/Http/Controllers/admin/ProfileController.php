@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\ProfileExport;
 use App\Http\Controllers\Controller;
 use App\Models\Extra;
 use App\Models\Payment;
@@ -10,6 +11,7 @@ use App\Models\ProfileSetting;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProfileController extends Controller
 {
@@ -17,6 +19,11 @@ class ProfileController extends Controller
     {
         $profiles = User::whereIn('role', [21])->withTrashed()->latest()->get();
         return view('admin.profile.index', compact('profiles'));
+    }
+
+    public function profileExport()
+    {
+        return Excel::download(new ProfileExport(), 'profiles.xlsx');
     }
 
     public function plans()

@@ -7,6 +7,9 @@
                 <div class="col-md-8 db-sec-com db-new-pro-main">
                     <h2 class="db-tit">Profile Register</h2>
                 </div>
+                <div class="col-md-4 db-sec-com db-new-pro-main text-end">
+                    <a class="btn btn-info" href="{{ route('admin.profiles.export') }}">Export Excel</a>
+                </div>
                 <div class="col-md-12 col-lg-12">
                     <div class="table-responsive">
                         <table id="myTable">
