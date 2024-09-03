@@ -69,6 +69,7 @@
                                             {{ html()->text('born_time', $profile->born_time)->class('form-control')->placeholder('Born Time') }}
                                         </div>
                                     </div>
+                                    {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                                 </div>
                                 <div class="form-tit">
                                     <h4>Basic info</h4>
@@ -135,6 +136,7 @@
                                         {{ html()->textarea('is_challenged', $profile?->is_challenged)->class('form-control')->placeholder('Physically or Mentally Challenged if any') }}
                                     </div>
                                 </div>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -181,6 +183,7 @@
                                     <label class="lb">Address:</label>
                                     {{ html()->text('address', $profile?->address)->class('form-control')->placeholder('Address') }}
                                 </div>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -237,6 +240,7 @@
                                         {{ html()->select('financial_status', $extras->where('category', 'financial_level')->pluck('name', 'id'), $profile->financial_status)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -287,6 +291,7 @@
                                         {{ html()->text('college', $profile?->college)->class('form-control')->placeholder('College') }}
                                     </div>
                                 </div>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -461,6 +466,7 @@
                                         @endforelse
                                     </tbody>
                                 </table>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -517,6 +523,7 @@
                                         {{ html()->select('working_place_preference', $districts, $profile?->working_place_preference)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
+                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
