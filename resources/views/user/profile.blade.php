@@ -101,6 +101,10 @@
                                         <small class="text-danger">{{ $errors->first('caste') }}</small>
                                         @enderror
                                     </div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="lb">Specify if Cast is not listed:</label>
+                                        {{ html()->text('cast_other', $profile?->user?->cast_other)->class('form-control')->placeholder('Specify if Cast is not listed') }}
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label class="lb req">Date of Birth:</label>
                                         {{ html()->date('dob', $profile->user->dob->format('Y-m-d'))->class('form-control') }}
@@ -153,6 +157,10 @@
                                     <div class="col-md-6 form-group">
                                         <label class="lb">City:</label>
                                         {{ html()->select('city', $districts, $profile?->city ?? '')->class('form-select chosen-select district')->placeholder('Select') }}
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="lb">Specify if City is not listed:</label>
+                                        {{ html()->text('city_other', $profile?->city_other)->class('form-control')->placeholder('Specify if City is not listed') }}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -279,6 +287,10 @@
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Education:</label>
                                         {{ html()->select('qualification', $qualifications, $profile?->qualification)->class('form-select chosen-select')->placeholder('Select') }}
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="lb">Specify if Education is not listed:</label>
+                                        {{ html()->text('qualification_other', $profile?->qualification_other)->class('form-control')->placeholder('Specify if Education is not listed') }}
                                     </div>
                                 </div>
                                 <div class="row">

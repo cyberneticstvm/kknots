@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->longText('bio')->nullable();
             $table->unsignedBigInteger('city')->nullable();
+            $table->string('city_other')->nullable();
             $table->unsignedBigInteger('state')->nullable();
             $table->decimal('height', 5, 2)->nullable();
             $table->string('height_unit', 5)->nullable();
@@ -39,6 +40,7 @@ return new class extends Migration
             $table->unsignedBigInteger('work_place')->nullable();
             $table->string('work_place_other', 150)->nullable();
             $table->unsignedBigInteger('qualification')->nullable();
+            $table->stirng('qualification_other')->nullable();
             $table->unsignedBigInteger('salary')->nullable();
             $table->decimal('total_experience')->nullable();
             $table->string('school', 150)->nullable();
@@ -55,6 +57,8 @@ return new class extends Migration
             $table->unsignedBigInteger('working_place_preference')->nullable();
             $table->string('profile_photo')->nullable();
             $table->string('horoscope')->nullable();
+            $table->unsignedBigInteger('born_star')->nullable();
+            $table->string('born_time', 50)->nullable();
             $table->boolean('show_profile_photo')->default('1');
             $table->boolean('show_contact_number')->default('1');
             $table->boolean('show_address')->default('1');

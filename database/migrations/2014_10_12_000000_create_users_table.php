@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('religion')->nullable();
             $table->unsignedBigInteger('caste')->nullable();
+            $table->string('cast_other')->nullable();
             $table->unsignedBigInteger('subcaste')->nullable();
             $table->unsignedBigInteger('role')->nullable();
             $table->unsignedBigInteger('partner_id')->comment('If role is Freelancer, Partner ID should be there which freelancer appointed by')->nullable();
