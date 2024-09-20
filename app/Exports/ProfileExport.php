@@ -13,7 +13,7 @@ class ProfileExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        $users =  User::where('role', 21)->get();
+        $users =  User::where('role', 21)->latest()->get();
         return $users->map(function ($data, $key) {
             return [
                 'No' =>  $key + 1,

@@ -56,13 +56,14 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request, string $id)
     {
+        $divid = $request->input('submit');
         $this->validate($request, [
             'profile_photo' => 'nullable|mimes:jpg,jpeg,png,webp|max:512',
             'horoscope' => 'nullable|mimes:pdf,doc,docx|max:512',
         ]);
         $profile = ProfileSetting::findOrFail($id);
         try {
-            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'whatsapp_number', 'verified', 'cast_other', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend'));
+            $input = $request->except(array('name', 'gender', 'dob', 'email', 'mobile', 'whatsapp_number', 'verified', 'cast_other', 'referral_code', 'my_habit_drinking', 'partner_habit_drinking', 'photos', 'caste', 'religion', 'my_habit_smoking', 'partner_habit_smoking', 'my_habit_tv', 'partner_habit_tv', 'my_habit_social', 'partner_habit_social', 'my_habit_food', 'partner_habit_food', 'my_habit_reading', 'partner_habit_reading', 'my_habit_movie', 'partner_habit_movie', 'my_habit_language', 'partner_habit_language', 'my_habit_friend', 'partner_habit_friend', 'submit'));
             $input1 = $request->only(array('name', 'gender', 'dob', 'email', 'mobile', 'whatsapp_number', 'referral_code', 'caste', 'religion', 'verified', 'cast_other'));
             if ($request->file('profile_photo')) :
                 $main_img = uploadFile($request->file('profile_photo'), $path = 'profile/' . $profile->user_id . '/photos');
@@ -255,7 +256,7 @@ class ProfileController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with("error", $e->getMessage())->withInput($request->all());
         }
-        return redirect()->back()->with("success", "Profile updated successfully.");
+        return redirect()->to('/user/profile/edit/' . encrypt($profile->user_id) . '#' . $divid)->with("success", "Profile updated successfully.");
     }
 
     function removeProfilePhoto(string $id)

@@ -16,7 +16,7 @@
                                         <h4>Profile</h4>
                                         <h1>Profile Photo & Horoscope</h1>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" id="UpdateProfile">
                                         <div class="col-md-12 form-group">
                                             <label class="lb">Profile Photo Main (360px width and 240px height):</label>
                                             {{ html()->file('profile_photo')->class('form-control main_img') }}
@@ -69,13 +69,13 @@
                                             {{ html()->text('born_time', $profile->born_time)->class('form-control')->placeholder('Born Time') }}
                                         </div>
                                     </div>
-                                    {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                    {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateProfile')->class('btn btn-primary btn-submit') }}
                                 </div>
                                 <div class="form-tit">
                                     <h4>Basic info</h4>
                                     <h1>Edit my profile</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdateBasicInfo">
                                     <div class="form-group col-md-6">
                                         <label class="lb">Name:</label>
                                         {{ html()->text('name', $profile->user->name)->class('form-control')->placeholder('Full Name') }}
@@ -124,6 +124,20 @@
                                         <label class="lb">WhatsApp Number:</label>
                                         {{ html()->text('whatsapp_number', $profile->user->whatsapp_number)->class('form-control')->placeholder('WhatsApp Number')->maxlength('10') }}
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="lb">Marital Status:</label>
+                                        {{ html()->select('marital_status', $extras->where('category', 'marital_status')->pluck('name', 'id'), $profile->marital_status)->class('chosen-select')->placeholder('Select') }}
+                                        @error('marital_status')
+                                        <small class="text-danger">{{ $errors->first('marital_status') }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="lb">Ethnicity:</label>
+                                        {{ html()->select('ethnicity', $extras->where('category', 'ethnicity')->pluck('name', 'id'), $profile->ethnicity)->class('chosen-select')->placeholder('Select') }}
+                                        @error('ethnicity')
+                                        <small class="text-danger">{{ $errors->first('ethnicity') }}</small>
+                                        @enderror
+                                    </div>
                                     <div class="form-group col-md-12">
                                         <label class="lb">Referral Code:</label>
                                         {{ html()->text('referral_code', $profile->user->referral_code)->class('form-control')->placeholder('Referral Code')->if($profile->user->referral_code != '', function($el){
@@ -140,7 +154,7 @@
                                         {{ html()->textarea('is_challenged', $profile?->is_challenged)->class('form-control')->placeholder('Physically or Mentally Challenged if any') }}
                                     </div>
                                 </div>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateBasicInfo')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -149,7 +163,7 @@
                                     <h4>Basic info</h4>
                                     <h1>Advanced bio</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdateAdvanceBio">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">State:</label>
                                         {{ html()->select('state', $states->pluck('name', 'id'), $profile?->state ?? 0)->class('form-select chosen-select parent')->attribute('data-type', 'state')->attribute('data-child', 'district')->placeholder('Select') }}
@@ -191,7 +205,7 @@
                                     <label class="lb">Address:</label>
                                     {{ html()->text('address', $profile?->address)->class('form-control')->placeholder('Address') }}
                                 </div>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateAdvanceBio')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -200,7 +214,7 @@
                                     <h4>Basic info</h4>
                                     <h1>Other Family info</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdateFamilyInfo">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Father Occupation:</label>
                                         {{ html()->text('father_occupation', $profile?->father_occupation)->class('form-control')->placeholder('Father Occupation') }}
@@ -248,7 +262,7 @@
                                         {{ html()->select('financial_status', $extras->where('category', 'financial_level')->pluck('name', 'id'), $profile->financial_status)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateFamilyInfo')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -257,7 +271,7 @@
                                     <h4>Job details</h4>
                                     <h1>Job & Education</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdateJobEdu">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Job type:</label>
                                         {{ html()->select('occupation', $occupations, $profile?->occupation)->class('form-select chosen-select')->placeholder('Select') }}
@@ -303,11 +317,11 @@
                                         {{ html()->text('college', $profile?->college)->class('form-control')->placeholder('College') }}
                                     </div>
                                 </div>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateJobEdu')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
-                            <div class="edit-pro-parti">
+                            <div class="edit-pro-parti" id="UpdateHab">
                                 <div class="form-tit">
                                     <h4>Interests & Habits</h4>
                                     <h1>Interests & Habits</h1>
@@ -478,7 +492,7 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateHab')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -487,7 +501,7 @@
                                     <h4>Prefernces</h4>
                                     <h1>Partner Preferences</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdatePref">
                                     <div class="col-md-6 form-group">
                                         <label class="lb">Marital Status:</label>
                                         {{ html()->select('marital_status_preference', $extras->where('category', 'marital_status')->pluck('name', 'id'), $profile?->marital_status_preference)->class('chosen-select')->placeholder('Select') }}
@@ -535,7 +549,7 @@
                                         {{ html()->select('working_place_preference', $districts, $profile?->working_place_preference)->class('chosen-select')->placeholder('Select') }}
                                     </div>
                                 </div>
-                                {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                                {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdatePref')->class('btn btn-primary btn-submit') }}
                             </div>
                             <!--END PROFILE BIO-->
                             <!--PROFILE BIO-->
@@ -544,7 +558,7 @@
                                     <h4>Profile</h4>
                                     <h1>Profile Status</h1>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="UpdateStatus">
                                     @if(Auth::user()->role == 19)
                                     <div class="form-group col-md-12">
                                         <label class="lb">Verification:</label>
@@ -558,7 +572,7 @@
                                 </div>
                             </div>
                             <!--END PROFILE BIO-->
-                            {{ html()->submit('Update')->class('btn btn-primary btn-submit') }}
+                            {{ html()->submit('Update')->attribute('name', 'submit')->attribute('value', 'UpdateStatus')->class('btn btn-primary btn-submit') }}
                             {{ html()->form()->close() }}
                         </div>
                     </div>

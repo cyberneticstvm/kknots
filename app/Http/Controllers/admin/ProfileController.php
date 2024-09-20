@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\PartnerPreferenceExport;
 use App\Exports\ProfileExport;
 use App\Http\Controllers\Controller;
 use App\Models\Extra;
@@ -24,6 +25,11 @@ class ProfileController extends Controller
     public function profileExport()
     {
         return Excel::download(new ProfileExport(), 'profiles.xlsx');
+    }
+
+    public function preferenceExport()
+    {
+        return Excel::download(new PartnerPreferenceExport(), 'preferences.xlsx');
     }
 
     public function plans()
