@@ -46,8 +46,8 @@ class PartnerPreferenceExport implements FromCollection, WithHeadings
                 'Partner' => Extra::whereIn('id', $data->settings?->details?->where('category', 'partner')->whereIn('name', [95, 96, 97, 98, 99, 100, 101])->pluck('name'))->pluck('name')->implode(','),
                 'Marital Status Preference' => $data->settings?->mstatus?->name,
                 'Caste Preference' => $data->casts?->name,
-                'Education Preference' => $data->settings?->qualifications->name,
-                'Occupation Preference' => $data->settings?->occupations->name,
+                'Education Preference' => $data->settings?->qualifications?->name,
+                'Occupation Preference' => $data->settings?->occupations?->name,
             ];
         });
     }
