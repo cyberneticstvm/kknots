@@ -59,7 +59,7 @@ class ProfileController extends Controller
         $divid = $request->input('submit');
         $this->validate($request, [
             'profile_photo' => 'nullable|mimes:jpg,jpeg,png,webp|max:512',
-            'horoscope' => 'nullable|mimes:pdf,doc,docx|max:512',
+            'horoscope' => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png|max:512',
         ]);
         $profile = ProfileSetting::findOrFail($id);
         try {

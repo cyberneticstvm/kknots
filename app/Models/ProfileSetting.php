@@ -35,4 +35,9 @@ class ProfileSetting extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function mstatus()
+    {
+        return $this->belongsTo(Extra::class, 'marital_status_preference', 'id');
+    }
 }
