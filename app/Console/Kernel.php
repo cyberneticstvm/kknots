@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('snapshot:create ' . time())->hourly();
         $schedule->command('snapshot:cleanup --keep=5')->hourly();
         $schedule->call(function () {
-            Mail::to(settings()->contact_email)->send(new ProfileWeeklyEmail());
+            Mail::to('keralaknots2024@gmail.com')->send(new ProfileWeeklyEmail());
         })->weekly();
     }
 
