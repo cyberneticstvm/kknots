@@ -37,6 +37,8 @@ Route::middleware(['web'])->group(function () {
 
         Route::get('/sitemap.xml', 'sitemap')->name('sitemap');
         Route::get('/robots.txt', 'robots')->name('robots');
+
+        Route::get('/download/profiles', 'downloadProfiles')->name('download.profiles');
     });
 
     Route::controller(AuthController::class)->group(function () {
