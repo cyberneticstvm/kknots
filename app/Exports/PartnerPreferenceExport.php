@@ -5,6 +5,7 @@ namespace App\Exports;
 use App\Models\Caste;
 use App\Models\Extra;
 use App\Models\User;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -23,7 +24,7 @@ class PartnerPreferenceExport implements FromCollection, WithHeadings
                 'Mobile' => $data->mobile,
                 'Email' => $data->email,
                 'DOB' => $data->dob->format('d.M.Y'),
-                'Age' => $data->dob->format('d.M.Y'),
+                'Age' => Carbon::parse($data->dob)->age,
                 'Gender' => $data->genders?->name,
                 'Religion' => $data->religions?->name,
                 'Caste' => $data->casts?->name,
