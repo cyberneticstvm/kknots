@@ -88,9 +88,9 @@
                                     <small class="text-danger">{{ $errors->first('how_to_know') }}</small>
                                     @enderror
                                 </div>
-                                <div class="form-group form-check">
+                                <div class="form-group form-check border">
                                     <label class="form-check-label req">
-                                        {{ html()->checkbox('terms', old('terms'))->class('form-check-input') }} Creating
+                                        {{ html()->checkbox('terms', old('terms'))->class('form-check-input border') }} Creating
                                         an account means you're agree with our <a href="#!">Terms of Service</a>,
                                         Privacy Policy, and our default Notification Settings.
                                     </label>

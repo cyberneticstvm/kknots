@@ -12566,3 +12566,7 @@ select {
 .text-justify {
     text-align: justify !important;
 }
+
+.border{
+    border: 1px solid #000 !important;
+}
