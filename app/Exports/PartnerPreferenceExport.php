@@ -23,9 +23,12 @@ class PartnerPreferenceExport implements FromCollection, WithHeadings
                 'Mobile' => $data->mobile,
                 'Email' => $data->email,
                 'DOB' => $data->dob->format('d.M.Y'),
+                'Age' => $data->dob->format('d.M.Y'),
                 'Gender' => $data->genders?->name,
                 'Religion' => $data->religions?->name,
                 'Caste' => $data->casts?->name,
+                'Height' => $data->settings?->height,
+                'Weight' => $data->settings?->weight,
                 'Verified' => $data->verified,
                 'Created at' => $data->created_at->format('d.M.Y'),
                 'Drinking' => Extra::whereIn('id', $data->settings?->details?->where('category', 'user')->whereIn('name', [36, 37])->pluck('name'))->pluck('name')->implode(','),
@@ -54,6 +57,6 @@ class PartnerPreferenceExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["SL No", "Name", "Mobile", "Email", "DOB", "Gender", "Religion", "Caste", "Verified", "Created at", "Drinking", "Partner", "Smoking", "Partner", "Television Programs", "Partner", "Social Media", "Partner", "Food Habits", "Partner", "Reading Habits", "Partner", "Movie Habits", "Partner", "Friends Circle", "Partner", "Marital Status Preference", "Caste Preference", "Education Preference", "Occupation Preference"];
+        return ["SL No", "Name", "Mobile", "Email", "DOB", "Age", "Gender", "Religion", "Caste", "Height", "Weight", "Verified", "Created at", "Drinking", "Partner", "Smoking", "Partner", "Television Programs", "Partner", "Social Media", "Partner", "Food Habits", "Partner", "Reading Habits", "Partner", "Movie Habits", "Partner", "Friends Circle", "Partner", "Marital Status Preference", "Caste Preference", "Education Preference", "Occupation Preference"];
     }
 }
