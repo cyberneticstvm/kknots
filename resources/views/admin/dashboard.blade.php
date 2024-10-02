@@ -43,13 +43,13 @@
                 </div>
                 <div class="col-md-3">
                     <h5>Male Profiles Current Month</h5>
-                    <h2 class="fw-bold">{{ $profiles->where('gender', 1)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count() }}</h2>
+                    <h2 class="fw-bold">{{ $current_month_profiles_male }}</h2>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-md-3">
                     <h5>Female Profiles Current Month</h5>
-                    <h2 class="fw-bold">{{ $profiles->where('gender', 2)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count() }}</h2>
+                    <h2 class="fw-bold">{{ $current_month_profiles_female }}</h2>
                 </div>
             </div>
         </div>

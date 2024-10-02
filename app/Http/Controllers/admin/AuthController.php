@@ -128,6 +128,8 @@ class AuthController extends Controller
         $collection = Payment::all();
         $current_month_collection = Payment::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount');
         $current_month_profiles = User::where('role', 21)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
-        return view('admin.dashboard', compact('profiles', 'collection', 'current_month_collection', 'current_month_profiles'));
+        $current_month_profiles_male = User::where('role', 21)->where('gender', 1)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
+        $current_month_profiles_female = User::where('role', 21)->where('gender', 2)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
+        return view('admin.dashboard', compact('profiles', 'collection', 'current_month_collection', 'current_month_profiles', 'current_month_profiles_male', 'current_month_profiles_female'));
     }
 }
