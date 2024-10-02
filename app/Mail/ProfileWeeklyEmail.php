@@ -9,6 +9,8 @@ use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProfileWeeklyExport;
 
 class ProfileWeeklyEmail extends Mailable
 {
@@ -17,10 +19,9 @@ class ProfileWeeklyEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public $data;
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
+        //
     }
 
     /**
@@ -40,7 +41,6 @@ class ProfileWeeklyEmail extends Mailable
     {
         return new Content(
             view: 'emails.profile-weekly-email',
-            with: $this->data
         );
     }
 
@@ -52,7 +52,7 @@ class ProfileWeeklyEmail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn() => $this->data['profile']->output(), 'profile.xlsx')->withMime('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
+            Attachment::fromData(fn() => Excel::raw(new ProfileWeeklyExport(), \Maatwebsite\Excel\Excel::XLSX), 'profile.xlsx')->withMime('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
         ];
     }
 }

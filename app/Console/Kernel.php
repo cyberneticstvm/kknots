@@ -7,7 +7,6 @@ use App\Mail\ProfileWeeklyEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 
 class Kernel extends ConsoleKernel
 {
@@ -20,8 +19,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('snapshot:create ' . time())->hourly();
         $schedule->command('snapshot:cleanup --keep=5')->hourly();
         $schedule->call(function () {
-            $data['profile'] = Excel::raw(new ProfileWeeklyExport(), \Maatwebsite\Excel\Excel::XLSX);
-            Mail::to('mail@cybernetics.me')->send(new ProfileWeeklyEmail($data));
+            Mail::to('mail@cybernetics.me')->send(new ProfileWeeklyEmail());
         })->dailyAt('23:45');
     }
 

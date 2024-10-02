@@ -9,8 +9,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ProfileWeeklyExport;
 use App\Mail\ProfileWeeklyEmail;
 
 class WebController extends Controller
@@ -112,7 +110,7 @@ class WebController extends Controller
 
     public function downloadProfiles()
     {
-        $data['profile'] = Excel::raw(new ProfileWeeklyExport(), \Maatwebsite\Excel\Excel::XLSX);
-        Mail::to('mail@cybernetics.me')->send(new ProfileWeeklyEmail($data));
+        //$data['profile'] = Excel::raw(new ProfileWeeklyExport(), \Maatwebsite\Excel\Excel::XLSX);
+        Mail::to('mail@cybernetics.me')->send(new ProfileWeeklyEmail());
     }
 }
