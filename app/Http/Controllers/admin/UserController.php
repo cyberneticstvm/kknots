@@ -48,6 +48,10 @@ class UserController extends Controller
             $input = $request->all();
             $input['password'] = Hash::make($request->mobile);
             $input['referral_code'] = random_int(100000, 999999);
+            if ($request->role == 23)
+                $input['referral_code'] = 'FR-' . $input['referral_code']; // for freelancers
+            if ($request->role == 127)
+                $input['referral_code'] = 'AK-' . $input['referral_code']; // for akshaya
             DB::transaction(function () use ($input) {
                 $user = User::create($input);
                 ProfileSetting::insert([

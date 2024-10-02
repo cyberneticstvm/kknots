@@ -37,7 +37,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="lb">Select Partner if Role is Freelancer:</label>
+                                <label class="lb">Select Partner if Role is Freelancer or Akshaya:</label>
                                 {{ html()->select('partner_id', $partners, old('partner_id'))->class('form-control')->placeholder('Select') }}
                                 @error('partner_id')
                                 <small class="text-danger">{{ $errors->first('partner_id') }}</small>

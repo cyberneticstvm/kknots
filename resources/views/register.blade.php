@@ -75,7 +75,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="lb">Referral Code:</label>
+                                    <label class="lb">Referral Code: (Only applicable for the profile through agents)</label>
                                     {{ html()->text('referral_code', old('referral_code'))->class('form-control')->placeholder('Referral Code') }}
                                     @error('referral_code')
                                     <small class="text-danger">{{ $errors->first('referral_code') }}</small>

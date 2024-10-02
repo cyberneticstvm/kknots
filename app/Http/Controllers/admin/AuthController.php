@@ -64,8 +64,11 @@ class AuthController extends Controller
             'terms' => 'accepted',
         ]);
         try {
+            $exist = User::where('role', 21)->where('name', $request->name)->where('gender', $request->gender)->where('dob', $request->dob)->first();
             if (Carbon::parse($request->dob)->age < 18)
                 throw new Exception("Age should be greater than or equal to 18");
+            if ($exist)
+                throw new Exception("Profile seems to be exists already!");
             $input = $request->except(array('password_confirmation', 'terms'));
             $input['plan'] = 1;
             $input['role'] = 21;
