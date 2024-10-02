@@ -16,6 +16,14 @@
                     <h2 class="fw-bold">{{ $profiles->count() }}</h2>
                 </div>
                 <div class="col-md-3">
+                    <h5>Total Male Profiles</h5>
+                    <h2 class="fw-bold">{{ $profiles->where('gender', 1)->count() }}</h2>
+                </div>
+                <div class="col-md-3">
+                    <h5>Total Female Profiles</h5>
+                    <h2 class="fw-bold">{{ $profiles->where('gender', 2)->count() }}</h2>
+                </div>
+                <div class="col-md-3">
                     <h5>Paid Profiles</h5>
                     <h2 class="fw-bold">{{ $profiles->where('plan', '!=', 1)->count() }}</h2>
                 </div>
