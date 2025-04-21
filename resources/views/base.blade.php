@@ -89,7 +89,7 @@
             <div class="row wed-foot-link wed-foot-link-1">
                 <div class="col-md-4">
                     <h4>Get In Touch</h4>
-                    <p>Address: KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</p>
+                    <!--<p>Address: KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</p>-->
                     <p>Phone: <a href="tel:+919778292355">+91 9778292355</a></p>
                     <p>Email: <a href="mailto:help@keralaknots.com">help@keralaknots.com</a></p>
                 </div>

@@ -29,8 +29,8 @@
                     <li>
                         <div class="we-cont">
                             <img src="{{ asset('/assets/images/icon/find.png') }}" alt="">
-                            <h4>Office Location</h4>
-                            <span><i class="fa fa-map-marker" aria-hidden="true"></i> KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</span>
+                            <!--<h4>Office Location</h4>
+                            <span><i class="fa fa-map-marker" aria-hidden="true"></i> KC Arcade, 2nd Floor, Near TV Center, CSEZ PO, Kakkanadu, Ernakulam - 682037</span>-->
                         </div>
                     </li>
                     <li>
